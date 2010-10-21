@@ -1,0 +1,2 @@
+module SectionReportsHelper
+end

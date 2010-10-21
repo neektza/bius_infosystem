@@ -1,0 +1,12 @@
+<h1>Members#Membership_fees#index</h1>
+<%= render :partial => "members/show_menu" %>
+
+<% if @member %>
+
+<% for f in @member.fees %>
+<%= f.year %>
+<% end %>
+
+<%= link_to "New", new_member_fee_url %>
+
+<% end %>

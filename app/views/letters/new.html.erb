@@ -1,0 +1,12 @@
+<h1>Letters#new</h1>
+<%= render :partial => "index_menu" %>
+
+<%= error_messages_for :letter %>
+
+<% form_for @letter, :html => {:multipart => true} do |f| %>
+
+<%= letter_form(f) %>
+
+<p><%= f.submit 'Create' %></p>
+
+<% end %>

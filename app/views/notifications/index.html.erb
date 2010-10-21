@@ -1,0 +1,16 @@
+<h1>Notifications#index</h1>
+<p><%= link_to 'Relevant', relevant_notifications_url %> | <%= link_to 'All', notifications_url %></p>
+<hr/>
+
+<% unless @notifications.empty? %>
+
+<% for notification in @notifications %>
+<p> <%= link_to notification.title, notification_url(notification) %>  </p>
+<p> <%= notification.body %> </p>
+<%= link_to 'Edit', edit_notification_url(notification) %> | <%= link_to '[x]', notification_url(notification), :method => :delete, :confirm=>"Are you sure?" %>
+<hr/>
+<% end %>
+
+<% end %>
+
+<p><%= link_to 'New', new_notification_url %> | <%= link_to 'Search', search_notifications_url %> | <%= link_to 'Send', mail_notifications_url %></p>

@@ -1,0 +1,13 @@
+<h1>Section#edit</h1>
+<%= render :partial => "show_menu" %>
+
+<%= error_messages_for :section %>
+
+<% form_for @section do |f| %>
+
+<%= section_form(f) %>
+
+<p><%= f.submit "Update" %></p>
+
+<% end %>
+

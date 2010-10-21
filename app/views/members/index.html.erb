@@ -1,0 +1,27 @@
+<h1>Members#index</h1>
+<%= render :partial => "index_menu" %>
+
+<% unless @members.empty? %>
+
+<p>
+<table border='1'>
+<tr>
+<th>#</th>
+<th>Username</th>
+<th>Ime</th>
+<th>Prezime</th>
+<th>E-mail</th>
+</tr>
+
+<% for m in @members %>
+<tr>
+<td><%=h m.membership_card_nmb %></td>
+<td><%= link_to m.username, member_url(m) %></td>
+<td><%=h m.first_name %></td>
+<td><%=h m.last_name %></td>
+<td><%=h m.email %></td>
+</tr>
+<% end %>
+</table>
+</p>
+<% end %>

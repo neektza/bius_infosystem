@@ -1,0 +1,28 @@
+<h1>Items#loans</h1>
+
+<% unless @loans.empty? %>
+
+<table border='1'>
+  
+<tr>
+<th>Zaduzenik</th>
+<th>Zaduzio ga</th>
+<th>Predmet</th>
+<th>Datum od</th>
+<th>Datum do</th>
+</tr>
+
+<% for l in @loans %>
+<tr>
+<td><%= link_to "#{l.taker.first_name} #{l.taker.last_name}", member_url(l.taker.id) %></td>
+<td><%= link_to "#{l.giver.first_name} #{l.giver.last_name}", member_url(l.giver.id) %></td>
+<td><%= link_to "#{l.item.inventory_number} | #{l.item.name}", item_url(l.item.id)%></td>
+<td><%= l.date_from %></td>
+<td><%= l.date_to %></td>
+</tr>
+<% end %>
+</table>
+
+<% end %>
+
+<p><%= link_to "Back", items_url %></p>

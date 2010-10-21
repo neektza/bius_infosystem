@@ -1,0 +1,14 @@
+<h1>Fieldwork#Report</h1>
+<%= render :partial => "/fieldworks/show_menu" %>
+
+<% unless @fieldwork.report.nil? %>
+
+<p>Izvjesce:</p>
+
+filename: <%= @fieldwork.report.filename %> | 
+<%= link_to '[v]', download_fieldwork_report_url(@fieldwork) %> | 
+<%= link_to '[x]', fieldwork_report_url(@fieldwork), :method => :delete, :confirm => "Are you sure?" %>
+<br/>
+<% end %>
+
+<p><%= link_to 'Upload', upload_fieldwork_report_url %></p>

@@ -1,0 +1,20 @@
+<h1>Tags#index</h1>
+
+<% unless @tags.empty? %>
+
+<p>
+<ul>
+	<% for tag in @tags %> 
+    <li><%= link_to tag.title, tag_url(tag) %></li>
+	<% end %>
+</ul>
+</p>
+
+<% end %>
+
+<p> 
+	<%= link_to 'New', new_tag_url %> | 
+	<%= link_to 'Search', search_tags_url %> | 
+	<%= link_to 'Generate', generate_tags_url %>
+</p>
+

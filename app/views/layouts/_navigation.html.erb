@@ -1,0 +1,10 @@
+<% if session[:user_id] %>
+<%= link_to ':members:', members_url %> |
+<%= link_to ':sections:', sections_url %> |
+<%= link_to ':projects:', projects_url %> |
+<%= link_to ':fieldworks:', fieldworks_url %> |
+<%= link_to ':letters:', letters_url %> |
+<%= link_to ':transfers:', transfers_url %> |
+<%= link_to ':notifications:', notifications_url %> |
+<%= link_to ':tags:', tags_url %>
+<% end %>

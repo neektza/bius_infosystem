@@ -1,0 +1,34 @@
+<p>
+Dopis:</br>
+<%= file_field :letter, :file %>
+</p>
+
+<p>
+<%= f.radio_button :io, Letter::IO::INCOMING %> Dolazni <br/>
+<%= f.radio_button :io, Letter::IO::OUTGOING %> Odlazni
+<p/>
+
+<p>
+Datum slanja/primanja:<br/>
+<%= f.date_select :date , :order => [:day, :month, :year], :start_year => 2000  %>
+</p>
+
+<p>
+Posiljatelj:<br/>
+<%= f.text_field :from %>
+</p>
+
+<p>
+Primatelj:<br/>
+<%= f.text_field :to %>
+</p>
+
+<p>
+Predmet:<br/>
+<%= f.text_field :subject %>
+</p>
+
+<p>
+Urudzbeni broj:<br/>
+<%= f.text_field :delivery_number %>
+</p>

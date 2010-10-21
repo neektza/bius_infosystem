@@ -1,0 +1,23 @@
+<h1>Projects#search</h1>
+<%= render :partial => "index_menu" %>
+
+<% form_tag search_projects_path do %>
+<p>
+Naziv...<br/>
+<%= text_field_tag 'keyword' %>
+<%= submit_tag "Search" %>
+</p>
+<% end %>
+
+
+<% unless @projects.empty? %>
+<p>
+<ul>
+
+<% for project in @projects %>
+<li><%= link_to project.title, project_url(project) %></li>
+<% end %>
+
+</p>
+</ul>
+<% end %>

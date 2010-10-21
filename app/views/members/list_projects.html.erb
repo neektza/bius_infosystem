@@ -1,0 +1,9 @@
+<h1>Member#Projects</h1>
+<%= render :partial => "members/show_menu" %>
+
+<ul>
+<% for project in @projects %>
+<li><%= link_to project.title, project_url(project) %></li>
+<% end %>
+</ul>
+

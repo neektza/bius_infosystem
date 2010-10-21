@@ -1,0 +1,2 @@
+class LibraryRequestsController < ApplicationController
+end

@@ -1,0 +1,12 @@
+<h1>Members#edit</h1>
+<%= render :partial => "show_menu" %>
+
+<%= error_messages_for :member %>
+
+<% form_for @member do |f| %>
+
+<%= member_form(f)%>
+
+<p><%= submit_tag 'Update' %></p>
+
+<% end %>

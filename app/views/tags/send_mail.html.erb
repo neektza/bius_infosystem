@@ -1,0 +1,19 @@
+<h1>Members#send_mail</h1>
+
+<% form_tag url_for(:controller => 'members', :action => 'send_mail', :id => @member) do %>
+
+Subject:<br/>
+<p>
+<%= text_field_tag 'subject' %>
+</p>
+
+Body:<br/>
+<p>
+<%= text_area_tag 'body' , nil , :rows => 20 , :cols=> 40 %>
+</p>
+
+<p> 
+<%= submit_tag 'Posalji' %> 
+</p>
+
+<% end %>

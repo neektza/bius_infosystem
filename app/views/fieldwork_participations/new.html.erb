@@ -1,0 +1,16 @@
+<h1>Fieldwork#Participation#new</h1>
+<%= render :partial => "/fieldworks/show_menu" %>
+
+<%= error_messages_for :fieldwork_participations %>
+
+<% unless @members.empty? %>
+Members:<br/>
+<ul>
+<% for member in @members %>
+<li>
+<%= link_to "#{member.first_name} #{member.last_name}", member_url(member.id) %>
+<%= link_to "[+]", fieldwork_participations_url(@fieldwork, :id => member), :method => :post %>
+</li>
+<% end %>
+</ul>
+<% end %>

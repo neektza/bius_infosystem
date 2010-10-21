@@ -1,0 +1,27 @@
+<h1>Members#registrations</h1>
+<%= render :partial => "index_menu" %>
+
+<% unless @registrations.empty? %>
+
+<p>
+<table border='1'>
+<tr>
+<th>Username</th>
+<th>Ime</th>
+<th>Prezime</th>
+<th>E-mail</th>
+</tr>
+
+<% for r in @registrations %>
+<tr>
+<td><%= link_to r.username, member_url(r) %></td>
+<td><%=h r.first_name %></td>
+<td><%=h r.last_name %></td>
+<td><%=h r.email %></td>
+<td><%= link_to '[+]', accept_member_url(r) %></td>
+<td><%= link_to '[-]', reject_member_url(r), :confirm => "Are you sure?" %></td>
+</tr>
+<% end %>
+</table>
+</p>
+<% end %>

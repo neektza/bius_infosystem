@@ -1,0 +1,12 @@
+<h1>Projects#new</h1>
+<%= render :partial => "index_menu" %>
+
+<%= error_messages_for :project %>
+
+<% form_for @project do |f| %>
+
+<%= project_form(f) %>
+
+<p><%= f.submit "Create" %></p>
+
+<% end %>

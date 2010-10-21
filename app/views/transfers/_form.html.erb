@@ -1,0 +1,25 @@
+<p>
+Tip:<br/>
+<%= f.radio_button :io, Transfer::IO::INCOMING %> Ulazni <br/>
+<%= f.radio_button :io, Transfer::IO::OUTGOING %> Izlazni
+<p/>
+
+<p>
+Iznos:<br/>
+<%= f.text_field :amount %>
+</p>
+
+<p>
+Datum:<br/>
+<%= f.date_select :date , :order => [:day, :month, :year], :start_year => 2000  %>
+</p>
+
+<p>
+Svrha:<br/>
+<%= f.text_area :purpose, :rows => 10 , :cols=> 20 %>
+</p>
+
+<p>Crno? | <%= f.check_box :is_secret %></p>
+
+<p><%= f.hidden_field :member_id, :value => session[:user_id] %></p>
+

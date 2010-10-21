@@ -1,0 +1,14 @@
+<h1>Projects#index</h1>
+<%= render :partial => "index_menu" %>
+
+<% unless @projects.empty? %>
+<p>
+<ul>
+
+<% for project in @projects %>
+<li><%= link_to project.title, project_url(project) %></li>
+<% end %>
+
+</ul>
+</p>
+<% end %>

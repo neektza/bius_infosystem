@@ -1,0 +1,16 @@
+<h1>Project#Items#index</h1>
+<%= render :partial => "/projects/show_menu" %>
+
+<% unless @project.items.empty? %>
+
+Inventar:</br>
+<ul>
+<% for item in @project.items do %>
+<li><%= link_to item.inventory_number, item_url(item) %> | <%=h item.name %> <%= link_to '[x]', project_item_url(@project, item), :method => :delete %></li>
+<% end %>
+</ul>
+
+<% end %>
+
+
+<p><%= link_to 'Add', add_project_items_url(@project) %></p>

@@ -1,0 +1,31 @@
+<h1>Notifications#search</h1>
+
+<% form_tag search_notifications_path do %>
+<p>
+Naslov...<br/>
+<%= text_field_tag 'keyword' %>
+<%= submit_tag "Search" %>
+</p>
+<% end %>
+
+
+<% unless @notifications.empty? %>
+<p>
+<table border='1'>
+	
+<tr>
+<th>Title</th>
+<th>Body</th></tr>
+
+<% for notification in @notifications %>
+<tr>
+<td><%= link_to notification.title, notification_url(notification) %></td>
+<td><%=h notification.body %></td>
+</tr>
+<% end %>
+
+</p>
+</table>
+<% end %>
+
+<p><%= link_to 'Back', notifications_url %></p>

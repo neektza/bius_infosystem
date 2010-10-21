@@ -1,0 +1,23 @@
+<h1>Sections#search</h1>
+<%= render :partial => "index_menu" %>
+
+<% form_tag search_sections_path do %>
+<p>
+Naziv...<br/>
+<%= text_field_tag 'keyword' %>
+<%= submit_tag "Search" %>
+</p>
+<% end %>
+
+
+<% unless @sections.empty? %>
+<p>
+<ul>
+
+<% for section in @sections %>
+<li><%= link_to section.title, section_url(section) %></li>
+<% end %>
+
+</ul>
+</p>
+<% end %>

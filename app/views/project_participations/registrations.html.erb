@@ -1,0 +1,18 @@
+<h1>Project#Memberships#registrations</h1>
+<%= render :partial => "projects/show_menu" %>
+
+<p>
+<% unless @registrations.empty? %>
+
+<ul>
+<% for r in @registrations %>
+<li>
+<%= link_to "#{r.member.first_name} #{r.member.last_name}", member_url(r.member.id) %> |
+<%= link_to "[a]", project_participation_url(@project, r.id, :role => ProjectParticipation::ROLE[:participant]), :method => :put %>
+<%= link_to "[r]", project_participation_url(@project, r.id), :method => :delete %>
+</li>
+<% end %>
+</ul>
+
+<% end %>
+</p>

@@ -1,0 +1,27 @@
+<h1>Members#new</h1>
+<%= render :partial => "index_menu" %>
+
+<%= error_messages_for :member %>
+
+<% form_for @member do |f| %>
+
+<p>
+Korisnicko ime:<br/>
+<%= f.text_field :username %>
+</p>
+
+<p>
+Lozinka:<br/>
+<%= f.password_field :password %>
+</p>
+
+<p>
+Potvrda lozinke:<br/>
+<%= f.password_field :password_confirmation %>
+</p>
+
+<%= member_form(f) %>
+
+<p><%= submit_tag 'Create' %></p>
+
+<% end %>

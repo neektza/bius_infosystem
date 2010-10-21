@@ -1,0 +1,12 @@
+<h1>Sections#new</h1>
+<%= render :partial => "index_menu" %>
+
+<%= error_messages_for :section %>
+
+<% form_for @section do |f| %>
+
+<%= section_form(f) %>
+
+<p><%= f.submit "Create" %></p>
+
+<% end %>

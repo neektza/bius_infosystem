@@ -1,0 +1,24 @@
+<h1>Subscriptions#index</h1>
+
+
+<% unless @subscriptions.empty? %>
+
+<p>
+<%= @member.username %>'s subscriptions:<br/>
+<ul>
+<% for s in @subscriptions %>
+ <li><%= s.title %></li>
+<% end %>
+</ul>
+</p>
+
+
+<% else %>
+
+<p>
+<%= flash[:tags] %>
+</p>
+
+<% end %>
+
+<%= link_to 'Edit subscriptions', change_member_subscriptions_url(session[:user_id]) %>

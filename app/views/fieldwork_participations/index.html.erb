@@ -1,0 +1,42 @@
+<h1>Fieldwork#Participations#index</h1>
+<%= render :partial => "/fieldworks/show_menu" %>
+
+<p>
+<% unless @participations.empty? %>
+Clanovi:<br/>
+<ul>
+
+<% for p in @participations %>
+<li>
+<%= link_to "#{p.member.first_name} #{p.member.last_name}", member_url(p.member.id) %>
+<%= link_to "[d]", fieldwork_participation_url(@fieldwork, p.id), :method => :delete %>
+<%= link_to "[>l]", fieldwork_participation_url(@fieldwork, p.id, :role => FieldworkParticipation::ROLE[:leader]), :method => :put %>
+</li>
+<% end %>
+
+</ul>
+<% end %>
+</p>
+
+<p>
+<% unless @leaderships.empty? %>
+Voditelji:<br/>
+<ul>
+
+<% for l in @leaderships %>
+<li>
+<%= link_to "#{l.member.first_name} #{l.member.last_name}", member_url(l.member.id) %>
+<%= link_to "[d]", fieldwork_participation_url(@fieldwork, l.id), :method => :delete %>
+<%= link_to "[>p]", fieldwork_participation_url(@fieldwork, l.id, :role => FieldworkParticipation::ROLE[:participant]), :method => :put %>
+</li>
+<% end %>
+
+</ul>
+<% end %>
+</p>
+<hr/>
+
+<p>
+<%= link_to 'New', new_fieldwork_participation_url(@fieldwork) %> |
+<%= link_to 'Apply', apply_fieldwork_participations_url(@fieldwork) %>
+</p>

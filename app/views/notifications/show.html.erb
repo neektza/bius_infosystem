@@ -1,0 +1,15 @@
+<h1>Notifications#show</h1>
+
+Naslov: <%= @notification.title %><br/>
+
+Tijelo: <%= @notification.body %><br/>
+
+Tegovi: 
+<% for tag in @notification.tags %>
+<%= tag.title %></br>
+<% end %>
+<hr/>
+
+<%= link_to 'Back', :action=>'index' %>
+
+

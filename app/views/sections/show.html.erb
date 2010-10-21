@@ -1,0 +1,11 @@
+<h1>Section#show</h1>
+<p><%= render :partial => "show_menu" %></p>
+
+<p>Naziv: <%= @section.title %></p>
+
+<p>Mentor: <%= @section.mentor %> dana</p>
+	
+<p>
+Radni plan:<br/>
+<%= @section.work_plan %>
+</p>

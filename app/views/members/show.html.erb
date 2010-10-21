@@ -1,0 +1,19 @@
+<h1>Members#show</h1>
+<%= render :partial => "show_menu" %>
+
+<p>Ime: <%= @member.first_name %></p>
+<p>Prezime: <%= @member.last_name %></p>
+<p>Email: <%= @member.email %></p>
+<p>Telefon: <%= @member.phone %></p>
+<p>Prebivaliste: <%= @member.residence %></p>
+<p>Mjesto rodjenja: <%= @member.birthplace %></p>
+<p>Datum rodjenja: <%= @member.birthdate %></p>
+<p>Razina prava: <%= @member.auth_level %></p>
+<p>Aktivan? <%= @member.is_active %></p>
+<p>Aktivan do: <%= @member.active_until %></p>
+<p>Diplomirao? <%= @member.graduated %></p>
+<p>Smjer: <%= @member.department %></p>
+<p>Broj indeksa: <%= @member.index_nmb %></p>
+<p>Broj iskaznice: <%= @member.membership_card_nmb %></p>
+<p>Godina upisa studija: <%= @member.enrolment_year %></p>
+<p>Datum pristupa BIUSu: <%= @member.join_date %></p>

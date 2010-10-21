@@ -1,0 +1,19 @@
+<h1>Transfer#show</h1>
+<%= render :partial => "show_menu" %>
+
+<p>
+Iznos: <%= @transfer.amount %> kuna
+</p>
+
+<p>
+Datum: <%= @transfer.date %>
+</p>
+
+<p>
+Svrha:<br/>
+<%= @transfer.purpose %>
+</p>
+
+<p>
+Unjeo: <%= "#{@transfer.member.first_name} #{@transfer.member.last_name}" %>
+</p>

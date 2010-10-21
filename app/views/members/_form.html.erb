@@ -1,0 +1,71 @@
+<p>
+Ime:<br/>
+<%= f.text_field :first_name %>
+</p>
+
+<p>
+Prezime:<br/>
+<%= f.text_field :last_name %>
+</p>
+
+<p>
+E-mail:<br/>
+<%= f.text_field :email %>
+</p>
+
+<p>
+Telefon:<br/>
+<%= f.text_field :phone %>
+</p>
+
+<p>
+Broj iskaznice:<br/>
+<%= f.text_field :membership_card_nmb %>
+</p>
+
+<hr/>
+
+<p>
+Mjesto rodjenja:<br/>
+<%= f.text_field :birthplace %>
+</p>
+
+<p>
+Mjesto prebivalista:<br/>
+<%= f.text_field :residence %>
+</p>
+
+<p>
+Datum rodjenja:<br/>
+<%= f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1970 %>
+</p>
+
+<p>
+Datum uclanjenja u BIUS:<br/>
+<%= f.date_select :join_date, :order => [:day, :month, :year], :start_year => 1970 %>
+</p>
+
+<p>
+Godina pocetka studija:<br/>
+<%= f.text_field :enrolment_year, :size => '5' %>
+</p>
+
+<p>
+Zavod:<br/>
+<%= f.text_field :department %>
+</p>
+
+<p>
+Broj indeksa:<br/>
+<%= f.text_field :index_nmb %>
+</p>
+
+<p>
+Aktivan clan?
+<%= f.check_box :is_active %>
+</p>
+
+<p>
+Diplomirao?
+<%= f.check_box :graduated %>
+</p>

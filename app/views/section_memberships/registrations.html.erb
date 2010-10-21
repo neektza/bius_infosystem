@@ -1,0 +1,18 @@
+<h1>Section#Memberships#registrations</h1>
+<%= render :partial => "sections/show_menu" %>
+
+<p>
+<% unless @registrations.empty? %>
+
+<ul>
+<% for r in @registrations %>
+<li>
+<%= link_to "#{r.member.first_name} #{r.member.last_name}", member_url(r.member.id) %> |
+<%= link_to "[a]", section_membership_url(@section, r.id, :role => SectionMembership::ROLE[:member]), :method => :put %>
+<%= link_to "[r]", section_membership_url(@section, r.id), :method => :delete %>
+</li>
+<% end %>
+</ul>
+
+<% end %>
+</p>

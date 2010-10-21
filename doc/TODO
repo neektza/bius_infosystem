@@ -1,0 +1,22 @@
+FIX display helpers + views + messages (hr)
+FIX delete self
+
+TODO https (secure it!)
+TODO letters io types
+TODO baza, izmjeniti production bazu skladno promjenama na dev bazi (roles, varchar u char gdje treba i sl.)
+
+* i dalje kao UO nemam autorizaciju mijenjat nista kod sekcija i projekata
+
+* osoba koja ima status clan moze dodavati stvari iz inventara na projekt/teren (kao da su koristeni) tamo a nebi smjela - samo voditelj projekt/terena. popraviti auth stvari oko projekt/teren voditeljstva
+
+* knjiznica
+Autor
+Vlasništvo
+Kod koga se nalazi
+Rok posudbe
+Kada je posudio (bius ili neka sekcija) automatski 2 tjedna, ali da se moze mijenjat
+
+* oprema
+Vrsta opreme
+Vlasnistvo (neka sekcija ili BIUS)
+kod koga se nalazi (BIUS ili necije ime)

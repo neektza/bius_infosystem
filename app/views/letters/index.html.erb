@@ -1,0 +1,31 @@
+<h1>Letters#index</h1>
+<%= render :partial => "index_menu" %>
+<%= render :partial => "sub_menu" %>
+
+<% unless @letters.empty? %>
+
+<p>
+<table border='1'>
+
+<tr>
+<th>Posiljatelj</th>
+<th>Primatelj</th>
+<th>Predmet</th>
+<th>Datum</th>
+</tr>
+
+<% for l in @letters %>
+<tr>
+<td><%=h l.from %></td>
+<td><%=h l.to %></td>
+<td><%= link_to l.subject, letter_url(l) %></td>
+<td><%=h l.date %></td>
+
+</tr>
+<% end %>
+</table>
+</p>
+
+<% end %>
+
+<p><%= link_to 'New', new_letter_url %></p>

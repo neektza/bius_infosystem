@@ -1,0 +1,12 @@
+<h1>Sections#index</h1>
+<%= render :partial => "index_menu" %>
+
+<% unless @sections.empty? %>
+<p>
+<ul>
+<% for section in @sections %>
+<li><%= link_to section.title, section_url(section)%></li>
+<% end %>
+</ul>
+</p>
+<% end %>

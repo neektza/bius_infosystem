@@ -1,0 +1,11 @@
+<p>
+<%= link_to 'Index', projects_url %> |
+<%= link_to 'Info', project_url(@project) %> |
+<%= link_to 'Edit', edit_project_url(@project) %> |
+<%= link_to 'Destroy', project_url(@project), :method => :delete, :confirm=>"Are you sure?" %> |
+<%= link_to 'Participations', project_participations_url(@project) %> |
+<%= link_to 'Registrations', registrations_project_participations_url(@project) %> |
+<%= link_to 'Report', project_report_url(@project) %> |
+<%= link_to 'Items', project_items_url(@project) %>
+</p>
+<hr/>

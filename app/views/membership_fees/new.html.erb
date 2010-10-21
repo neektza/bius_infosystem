@@ -1,0 +1,13 @@
+<h1>Members#Membership_fees#new</h1>
+<%= render :partial => "members/show_menu" %>
+
+<% form_tag member_membership_fees_url(@member) do %>
+
+<p>
+Uplata za godinu:</br>
+<%= select_year Date.today %> 
+</p>
+
+<p><%= submit_tag 'Submit' %></p>
+
+<% end %>

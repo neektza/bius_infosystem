@@ -1,0 +1,16 @@
+<h1>Fieldwork#Items#index</h1>
+<%= render :partial => "/fieldworks/show_menu" %>
+
+<% unless @fieldwork.items.empty? %>
+
+Inventar:</br>
+<ul>
+<% for item in @fieldwork.items do %>
+<li><%= link_to item.inventory_number, item_url(item) %> | <%=h item.name %> <%= link_to '[x]', fieldwork_item_url(@fieldwork, item), :method => :delete %></li>
+<% end %>
+</ul>
+
+<% end %>
+
+
+<p><%= link_to 'Add', add_fieldwork_items_url(@fieldwork) %></p>

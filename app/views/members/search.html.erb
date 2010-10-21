@@ -1,0 +1,36 @@
+<h1>Members#search</h1>
+<%= render :partial => "index_menu" %>
+
+<% form_tag search_members_path do %>
+<p>
+Ime/Prezime/Username...<br/>
+<%= text_field_tag 'keyword' %>
+<%= submit_tag "Search" %>
+</p>
+<% end %>
+
+
+<% unless @members.empty? %>
+<p>
+<table border='1'>
+	
+<tr>
+<th>Username</th>
+<th>Ime</th>
+<th>Prezime</th>
+<th>E-mail</th>
+</tr>
+
+<% for member in @members %>
+<tr>
+<td><%= link_to member.username, member_url(member) %></td>
+<td><%=h member.first_name %></td>
+<td><%=h member.last_name %></td>
+<td><%=h member.email %></td>
+
+</tr>
+<% end %>
+
+</p>
+</table>
+<% end %>

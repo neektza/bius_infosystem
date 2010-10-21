@@ -1,0 +1,42 @@
+<h1>Project#Participations#index</h1>
+<%= render :partial => "/projects/show_menu" %>
+
+<p>
+<% unless @participations.empty? %>
+Clanovi:<br/>
+<ul>
+
+<% for p in @participations %>
+<li>
+<%= link_to "#{p.member.first_name} #{p.member.last_name}", member_url(p.member.id) %>
+<%= link_to "[d]", project_participation_url(@project, p.id), :method => :delete %>
+<%= link_to "[>l]", project_participation_url(@project, p.id, :role => ProjectParticipation::ROLE[:leader]), :method => :put %>
+</li>
+<% end %>
+
+</ul>
+<% end %>
+</p>
+
+<p>
+<% unless @leaderships.empty? %>
+Voditelji:<br/>
+<ul>
+
+<% for l in @leaderships %>
+<li>
+<%= link_to "#{l.member.first_name} #{l.member.last_name}", member_url(l.member.id) %>
+<%= link_to "[d]", project_participation_url(@project, l.id), :method => :delete %>
+<%= link_to "[>p]", project_participation_url(@project, l.id, :role => ProjectParticipation::ROLE[:participant]), :method => :put %>
+</li>
+<% end %>
+
+</ul>
+<% end %>
+</p>
+<hr/>
+
+<p>
+<%= link_to 'New', new_project_participation_url(@project) %> |
+<%= link_to 'Apply', apply_project_participations_url(@project) %>
+</p>

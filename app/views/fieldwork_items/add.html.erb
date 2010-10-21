@@ -1,0 +1,27 @@
+<h1>Fieldwork#Items#add</h1>
+<%= render :partial => "/fieldworks/show_menu" %>
+
+<% unless @items.empty? %>
+
+Items:<br/>
+<% form_tag fieldwork_items_url(@fieldwork) do %>
+<ul>
+<% for item in @items %>
+<li><%= check_box_tag ('item_ids[]', item.id , @fieldwork.item_ids.include?(item.id)) %> | <%= item.name %></li>
+<% end %>
+
+<p><%= submit_tag 'Save' %></p>
+</ul>
+<% end %>
+
+<% else %>
+
+<p><%= flash[:items] %></p>
+
+<% end %>
+
+<%= link_to 'Back', fieldwork_items_url(@fieldwork) %>
+
+
+
+

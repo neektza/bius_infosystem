@@ -1,0 +1,51 @@
+<h1>User#show</h1>
+<%= render :partial => "profile_menu" %>
+
+
+<p>Ime: <%= @user.first_name %></p>
+<p>Prezime: <%= @user.last_name %></p>
+<p>Email: <%= @user.email %></p>
+<p>Telefon: <%= @user.phone %></p>
+<p>Prebivaliste: <%= @user.residence %></p>
+<p>Mjesto rodjenja: <%= @user.birthplace %></p>
+<p>Datum rodjenja: <%= @user.birthdate %></p>
+<p>Aktivan? <%= @user.is_active %></p>
+<p>Diplomirao? <%= @user.graduated %></p>
+<p>Smjer: <%= @user.department %></p>
+<p>Broj indeksa: <%= @user.index_nmb %></p>
+<p>Godina upisa studija: <%= @user.enrolment_year %></p>
+<p>Datum pristupa BIUSu: <%= @user.join_date %></p>
+
+<hr/>
+
+Clan sekcija:
+<ul>
+<% for section in @user.sections %>
+<li><%= link_to section.title, :controller=>'sections', :action=>'show', :id=>section.id %></li>
+<% end %>
+</ul>
+
+Sudionik projekata:
+<ul>
+<% for project in @user.projects %>
+<li><%= link_to project.title, :controller=>'projects', :action=>'show', :id=>project.id %></li>
+<% end %>
+</ul>
+
+Predmeti trenutno kod clana:
+<ul>
+<% for itemhist in @user.items_in_possession %>
+<li> 
+<%= link_to "#{itemhist.item.inv_no} | #{itemhist.item.name}" , :controller => 'items' , :action => 'show' , :id => itemhist.item.id %> |
+<%= link_to 'Oslobodi predmet' , :controller=>'items' , :action => 'dealloc' , :id => itemhist.item.id , :requester_id => session[:user_id] %>
+</li>
+
+<% end %>
+</ul>
+
+Predmeti u proslosti kod clana:
+<ul>
+<% for itemhist in @user.items_taken %>
+<li> <%= link_to "#{itemhist.item.inv_no} | #{itemhist.item.name}" , :controller => 'items' , :action => 'show' , :id => itemhist.item.id %> </li>
+<% end %>
+</ul>

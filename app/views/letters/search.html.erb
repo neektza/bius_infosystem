@@ -1,0 +1,23 @@
+<h1>Letters#search</h1>
+<%= render :partial => "index_menu" %>
+
+<% form_tag search_letters_path do %>
+<p>
+Subject..<br/>
+<%= text_field_tag 'keyword' %>
+<%= submit_tag "Search" %>
+</p>
+<% end %>
+
+
+<% unless @letters.empty? %>
+<p>
+<ul>
+
+<% for l in @letters %>
+<li><%= link_to l.subject, letter_url(l) %></li>
+<% end %>
+
+</ul>
+</p>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Letters#show</h1>
+<%= render :partial => "show_menu" %>
+
+
+<p>Posiljatelj: <%= @letter.from %></p>
+
+<p>Primatelj: <%= @letter.to %></p>
+
+<p>Predmet: <%= @letter.subject %></p>
+
+<p>Urudzbeni broj: <%= @letter.delivery_number %></p>
+
+<p>Dopis: <%= link_to @letter.filename, download_letter_url(@letter)%> 

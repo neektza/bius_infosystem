@@ -1,0 +1,20 @@
+<h1>Section#Reports#new</h1>
+<%= render :partial => "/sections/show_menu" %>
+
+<p><%= error_messages_for :reports %></p>
+
+<% form_tag section_reports_url(@section), { :multipart => true } do %>
+
+<p>
+Izvjestaj za spremanje:</br>
+<%= file_field_tag :report %>
+</p>
+
+<p>
+Godina izvjesca:</br>
+<%= select_year Date.today %> 
+</p>
+
+<p><%= submit_tag 'Spremi izvjesce' %></p>
+
+<% end %>

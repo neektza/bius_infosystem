@@ -1,0 +1,17 @@
+<h1>Section#Reports#index</h1>
+<%= render :partial => "/sections/show_menu" %>
+
+<% unless @section.reports.empty? %>
+
+<p>Izvjesca:</p>
+
+<% for report in @reports do %>
+filename: <%= report.filename %> | 
+year: <%= report.year %> |
+<%= link_to '[v]', download_section_report_url(@section, report) %> | 
+<%= link_to '[x]', section_report_url(@section, report), :method => :delete, :confirm => "Are you sure?" %>
+<br/>
+<% end %>
+<% end %>
+
+<p><%= link_to 'New', new_section_report_url %></p>

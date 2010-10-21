@@ -1,0 +1,18 @@
+<h1>Section#Report#upload</h1>
+<%= render :partial => "/projects/show_menu" %>
+
+<p><%= error_messages_for :reports %></p>
+
+
+<% form_tag project_report_url(@project), { :multipart => true } do %>
+
+<p>
+Izvjestaj za spremanje:</br>
+<%= file_field_tag :report %>
+</p>
+
+<p>
+<%= submit_tag 'Spremi izvjesce' %>
+</p>
+
+<% end %>

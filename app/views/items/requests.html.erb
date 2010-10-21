@@ -1,0 +1,27 @@
+<h1>Items#requests</h1>
+
+<% unless @requests.empty? %>
+
+<table border='1'>
+
+<tr>
+<th>Akcija</th>
+<th>Predmet</th>
+<th>Zaduzenik</th>
+<th>Datum</th>
+</tr>
+
+<% for r in @requests %>
+<tr>
+<td><%=h display_action(r.action) %></td>
+<td><%= link_to "#{r.item.inventory_number} | #{r.item.name}", item_url(r.item.id) %></td>
+<td><%= link_to "#{r.requester.first_name} #{r.requester.last_name}" , member_url(r.requester.id) %></td>
+<td><%=h r.date_requested %></td>
+<td><%= link_to "[+]", allow_item_request_url(r.item.id, r.id) %> <%= link_to "[-]", deny_item_request_url(r.item.id, r.id) %></td>
+</tr>
+<% end %>
+</table>
+
+<% end %>
+
+<p><%= link_to "Back", items_url %></p>

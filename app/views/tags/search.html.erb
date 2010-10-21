@@ -1,0 +1,33 @@
+<h1>Tags#search</h1>
+
+<% form_tag search_tags_path do %>
+<p>
+Title...<br/>
+<%= text_field_tag 'keyword' %>
+<%= submit_tag "Search" %>
+</p>
+<% end %>
+
+
+<% unless @tags.empty? %>
+<p>
+<table border='1'>
+	
+<tr>
+<th>Title</th>
+<th>Description</th>
+</tr>
+
+<% for tag in @tags %>
+<tr>
+<td><%= link_to tag.title, tag_url(tag) %></td>
+<td><%=h tag.description %></td>
+</tr>
+<% end %>
+
+</p>
+</table>
+<% end %>
+
+
+<p><%= link_to 'Back', tags_url %></p>

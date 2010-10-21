@@ -1,0 +1,25 @@
+<h1>Transfers#index</h1>
+<%= render :partial => "index_menu" %>
+<%= render :partial => "sub_menu" %>
+
+<% unless @transfers.empty? %>
+
+<p>
+<table border='1'>
+<tr>
+<th>Iznos</th>
+<th>Unjeo</th>
+</tr>
+
+<% for t in @transfers %>
+<tr>
+<td><%= link_to t.amount, transfer_url(t) %></td>
+<td><%=h "#{t.member.last_name} #{t.member.first_name}"  if t.member %></td>
+</tr>
+<% end %>
+</table>
+</p>
+
+<% end %>
+
+<p><%= link_to 'New', new_transfer_url %></p>

@@ -1,0 +1,9 @@
+<h1>Member#Fieldworks</h1>
+<%= render :partial => "members/show_menu" %>
+
+<ul>
+<% for fieldwork in @fieldworks %>
+<li><%= link_to fieldwork.location, fieldwork_url(fieldwork) %></li>
+<% end %>
+</ul>
+

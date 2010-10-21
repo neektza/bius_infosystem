@@ -1,0 +1,16 @@
+<h1>Project#Participation#new</h1>
+<%= render :partial => "/projects/show_menu" %>
+
+<%= error_messages_for :project_participations %>
+
+<% unless @members.empty? %>
+Members:<br/>
+<ul>
+<% for member in @members %>
+<li>
+<%= link_to "#{member.first_name} #{member.last_name}", member_url(member.id) %>
+<%= link_to "[+]", project_participations_url(@project, :id => member), :method => :post %>
+</li>
+<% end %>
+</ul>
+<% end %>

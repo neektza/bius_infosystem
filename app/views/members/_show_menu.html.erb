@@ -1,0 +1,11 @@
+<p>
+<%= link_to 'Index', members_url %> |
+<%= link_to 'Info', member_url(@member) %> | 
+<%= link_to 'Edit', edit_member_url(@member) %> | 
+<%= link_to 'Destroy', member_url(@member), :method => :delete, :confirm => "Are you sure?" %> | 
+<%= link_to 'Fees', member_fees_url(@member) %> | 
+<%= link_to 'Sections', member_sections_url(@member) %> | 
+<%= link_to 'Projects', member_projects_url(@member) %> | 
+<%= link_to 'Fieldworks', member_fieldworks_url(@member) %> 
+</p>
+<hr/>

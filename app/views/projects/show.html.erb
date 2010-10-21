@@ -1,0 +1,23 @@
+<h1>Projects#show</h1>
+<%= render :partial => "show_menu" %>
+
+<p>Naziv: <%= @project.title %></p>
+
+<p>
+Svrha:<br/>
+<%= @project.purpose %>
+</p>
+
+<p>Godina: <%= @project.year %></p>
+
+<p>Izvrsitelj: <%= @project.execution %></p>
+
+<p>
+Suradnje:<br/>
+<%= @project.cooperations %>
+</p>
+
+<p>
+Priznanja:<br/>
+<%= @project.recognitios %>
+</p>

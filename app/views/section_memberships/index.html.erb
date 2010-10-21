@@ -1,0 +1,44 @@
+<h1>Section#Memberships#index</h1>
+<%= render :partial => "sections/show_menu" %>
+
+
+<p>
+Clanovi:<br/>
+<% unless @memberships.empty? %>
+<ul>
+
+<% for m in @memberships %>
+<li>
+<%= link_to "#{m.member.first_name} #{m.member.last_name}", member_url(m.member.id) %>
+<%= link_to "[d]", section_membership_url(@section, m.id), :method => :delete %>
+<%= link_to "[>l]", section_membership_url(@section, m.id, :role => SectionMembership::ROLE[:leader]), :method => :put %>
+</li>
+<% end %>
+
+</ul>
+<% end %>
+</p>
+<hr/>
+
+<p>
+Voditelji:<br/>
+<% unless @leaderships.empty? %>
+<ul>
+
+<% for l in @leaderships %>
+<li>
+<%= link_to "#{l.member.first_name} #{l.member.last_name}", member_url(l.member.id) %>
+<%= link_to "[d]", section_membership_url(@section, l.id), :method => :delete %>
+<%= link_to "[>m]", section_membership_url(@section, l.id, :role => SectionMembership::ROLE[:member]), :method => :put %>
+</li>
+<% end %>
+
+</ul>
+<% end %>
+</p>
+<hr/>
+
+<p>
+<%= link_to 'New', new_section_membership_url(@section) %> | 
+<%= link_to 'Apply', apply_section_memberships_url(@section) %>
+</p>

@@ -1,0 +1,11 @@
+<p>
+<%= link_to 'Index', fieldworks_url %> |
+<%= link_to 'Info', fieldwork_url(@fieldwork) %> |
+<%= link_to 'Edit', edit_fieldwork_url(@fieldwork) %> |
+<%= link_to 'Destroy', fieldwork_url(@fieldwork), :method => :delete, :confirm=>"Are you sure?" %> |
+<%= link_to 'Participations', fieldwork_participations_url(@fieldwork) %> |
+<%= link_to 'Registrations', registrations_fieldwork_participations_url(@fieldwork) %> |
+<%= link_to 'Report', fieldwork_report_url(@fieldwork) %> |
+<%= link_to 'Items', fieldwork_items_url(@fieldwork) %>
+</p>
+<hr/>

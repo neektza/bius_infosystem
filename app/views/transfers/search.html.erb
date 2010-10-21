@@ -1,0 +1,23 @@
+<h1>Transfers#search</h1>
+<%= render :partial => "index_menu" %>
+
+<% form_tag search_transfers_path do %>
+<p>
+Purpose..<br/>
+<%= text_field_tag 'keyword' %>
+<%= submit_tag "Search" %>
+</p>
+<% end %>
+
+
+<% unless @transfers.empty? %>
+<p>
+<ul>
+
+<% for t in @transfers %>
+<li><%= link_to t.amount, transfer_url(t) %></li>
+<% end %>
+
+</ul>
+</p>
+<% end %>

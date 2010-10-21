@@ -1,0 +1,27 @@
+<h1>Project#Items#add</h1>
+<%= render :partial => "/projects/show_menu" %>
+
+<% unless @items.empty? %>
+
+Items:<br/>
+<% form_tag project_items_url(@project) do %>
+<ul>
+<% for item in @items %>
+<li><%= check_box_tag ('item_ids[]', item.id , @project.item_ids.include?(item.id)) %> | <%= item.name %></li>
+<% end %>
+
+<p><%= submit_tag 'Save' %></p>
+</ul>
+<% end %>
+
+<% else %>
+
+<p><%= flash[:items] %></p>
+
+<% end %>
+
+<%= link_to 'Back', project_items_url(@project) %>
+
+
+
+

@@ -1,0 +1,16 @@
+<h1>Section#Memberships#new</h1>
+<%= render :partial => "sections/show_menu" %>
+
+<p><%= error_messages_for :section_memberships %></p>
+
+<% unless @members.empty? %>
+Members:<br/>
+<ul>
+<% for member in @members %>
+<li>
+<%= link_to "#{member.first_name} #{member.last_name}", member_url(member.id) %>
+<%= link_to "[+]", section_memberships_url(@section, :member_id => member), :method => :post %>
+</li>
+<% end %>
+</ul>
+<% end %>
