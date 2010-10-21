@@ -1,9 +1,14 @@
 FIX display helpers + views + messages (hr)
 FIX delete self
 
-TODO https (secure it!)
-TODO letters io types
-TODO baza, izmjeniti production bazu skladno promjenama na dev bazi (roles, varchar u char gdje treba i sl.)
+TODO ur_br generacija
+TODO inventar - uo mijenja sve, bez request ovo ono
+---
+TODO auth modul reorganizacija
+TODO mail integracija
+TODO pagination
+TODO https (ssl) 
+TODO bool -> char(1)
 
 * i dalje kao UO nemam autorizaciju mijenjat nista kod sekcija i projekata
 

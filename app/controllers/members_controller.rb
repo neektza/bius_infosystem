@@ -5,15 +5,30 @@ class MembersController < ApplicationController
   #before_filter :check_if_administrative_board , :only => [:new, :edit, :create, :update, :destroy]
   #before_filter :check_if_supervisory_board, :only => [:show]
 
-  # Find all members TODO: put order by in sql
+  # Find only active members 
+  #TODO: put order by in sql and BOOL to CHAR(1)
   def index
+	@members = Member.all(:conditions => ["auth_level >= ? AND is_active = TRUE", Member::ROLE[:member]])
+    @members.sort! { |a,b| a.membership_card_nmb.to_i <=> b.membership_card_nmb.to_i }
+	if @members.empty?
+	  flash[:notice] = "messages.members.index.empty"
+	end
+	respond_to do |format|
+	  format.html { render :index }
+	  format.xml { render :xml => @members.to_xml }
+	  format.json { render :json => @members.to_json }
+	end
+  end
+
+  # Find all members 
+  def all
 	@members = Member.all(:conditions => ["auth_level >= ?", Member::ROLE[:member]])
     @members.sort! { |a,b| a.membership_card_nmb.to_i <=> b.membership_card_nmb.to_i }
 	if @members.empty?
 	  flash[:notice] = "messages.members.index.empty"
 	end
 	respond_to do |format|
-	  format.html
+	  format.html { render :index }
 	  format.xml { render :xml => @members.to_xml }
 	  format.json { render :json => @members.to_json }
 	end

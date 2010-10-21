@@ -1,9 +1,11 @@
 class Letter < ActiveRecord::Base
+  # TYPE to avoid STI
+  TYPE = {:incoming => 'i', :outgoing => 'o'}
 
-  class IO #to avoid STI
-    INCOMING = "incoming"
-    OUTGOING = "outgoing"
-  end
+  validates_presence_of :in_out
+  validates_presence_of :filename
+  validates_presence_of :delivery_number
+  validates_uniqueness_of :delivery_number
   
   def file=(stream)
     self.filename = base_part_of(stream.original_filename)

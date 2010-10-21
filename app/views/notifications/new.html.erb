@@ -1,4 +1,6 @@
 <h1>Notification#new</h1>
+<p><%= render :partial => "index_menu" %></p>
+<hr/>
 
 <%= error_messages_for :notification %>
 
@@ -16,9 +18,9 @@ Body:<br/>
 
 <% unless @tags.empty? %>
 <p>
-Tags: |
+Tags: <br/>
 <% for tag in @tags %>
- <%= tag.title %> <%= check_box_tag ('tag_ids[]', tag.id) %> |
+ <%= tag.title %> <%= check_box_tag('tag_ids[]', tag.id) %> |
 <% end %>
 </p>
 
@@ -31,5 +33,3 @@ Tags: |
 </p>
 
 <% end %>
-
-<%= link_to 'Back', notifications_url %>

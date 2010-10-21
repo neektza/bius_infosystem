@@ -11,7 +11,7 @@ class TransfersController < ApplicationController
       format.html
       format.xml { render :xml => @transfers.to_xml }
     end
-  end  
+  end
 
   def search
 	@transfers = []
@@ -41,7 +41,7 @@ class TransfersController < ApplicationController
   end
 
   def incoming
-    @transfers = Transfer.all(:conditions => {:io => Transfer::IO::INCOMING})
+    @transfers = Transfer.all(:conditions => {:in_out => Transfer::TYPE[:incoming]})
     if @transfers.empty?
         flash.now[:notice] = "No such transfers in database."
     end
@@ -53,7 +53,7 @@ class TransfersController < ApplicationController
   end
 
   def outgoing
-    @transfers = Transfer.all(:conditions => {:io => Transfer::IO::OUTGOING})
+    @transfers = Transfer.all(:conditions => {:in_out => Transfer::TYPE[:outgoing]})
     if @transfers.empty?
         flash.now[:notice] = "No such transfers in database."
     end

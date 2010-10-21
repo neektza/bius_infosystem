@@ -1,6 +1,6 @@
 <h1>Letters#index</h1>
-<%= render :partial => "index_menu" %>
-<%= render :partial => "sub_menu" %>
+<p><%= render :partial => "index_menu" %> - <%= render :partial => "sub_menu" %></p>
+<hr/>
 
 <% unless @letters.empty? %>
 
@@ -12,6 +12,7 @@
 <th>Primatelj</th>
 <th>Predmet</th>
 <th>Datum</th>
+<th>Urudzbeni #</th>
 </tr>
 
 <% for l in @letters %>
@@ -20,6 +21,7 @@
 <td><%=h l.to %></td>
 <td><%= link_to l.subject, letter_url(l) %></td>
 <td><%=h l.date %></td>
+<td><%=h l.delivery_number %></td>
 
 </tr>
 <% end %>

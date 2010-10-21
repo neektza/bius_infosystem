@@ -4,8 +4,8 @@ Dopis:</br>
 </p>
 
 <p>
-<%= f.radio_button :io, Letter::IO::INCOMING %> Dolazni <br/>
-<%= f.radio_button :io, Letter::IO::OUTGOING %> Odlazni
+<%= f.radio_button :in_out, Letter::TYPE[:incoming] %> Dolazni <br/>
+<%= f.radio_button :in_out, Letter::TYPE[:outgoing]%> Odlazni
 <p/>
 
 <p>
@@ -30,5 +30,5 @@ Predmet:<br/>
 
 <p>
 Urudzbeni broj:<br/>
-<%= f.text_field :delivery_number %>
+<%= f.text_field :delivery_number %> o-del#: <%= 
 </p>

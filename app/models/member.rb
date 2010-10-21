@@ -1,10 +1,6 @@
 class Member < ActiveRecord::Base
- 
-  # FIXME change to auth level 
   ROLE = {:admin => '5', :adm_board => '4', :sup_board => '3', :leader => '2', :member => '1', :applicant => '0'}
 
-  AUTH_LEVEL = {:admin => '5', :adm_board => '4', :sup_board => '3', :leader => '2', :member => '1', :applicant => '0'}
-  
   has_many :section_memberships, :dependent => :destroy
   has_many :sections, :through => :section_memberships
   has_many :sections_as_leader, :through => :section_memberships, :source => 'section', :conditions => "section_memberships.role = '#{SectionMembership::ROLE[:leader]}'"
@@ -20,17 +16,14 @@ class Member < ActiveRecord::Base
   has_many :fieldworks_as_leader, :through => :fieldwork_participations, :source => 'fieldwork' , :conditions => "fieldwork_participations.role = '#{ProjectParticipation::ROLE[:leader]}'"
   has_many :fieldworks_as_participant, :through => :fieldwork_participations, :source => 'fieldwork' , :conditions => "fieldwork_participations.role = '#{ProjectParticipation::ROLE[:participant]}'"
   
-  has_many :items , :foreign_key => "procurer_id" , :dependent => :nullify
-  has_many :item_requests , :foreign_key => "requester_id" ,:dependent => :destroy
+  has_many :items_procured, :class_name => "Item", :foreign_key => "procurer_id" , :dependent => :nullify
+  
+  has_many :items_borrowed, :class_name => "ItemLoan", :foreign_key => "borrower_id" , :dependent => :nullify
+  has_many :items_in_possesion, :class_name => "ItemLoan" , :finder_sql => "select il.* from item_loans il where il.taker_id = #{self.id} and il.date_to is null"
   
   has_many :transfers , :dependent => :nullify
   
-#  has_many :items_requested , :through => :item_requests, :source => :item , :dependent => :destroy
-#  has_many :items_taken , :class_name => "ItemLoan" , :finder_sql => "select il.* from item_loans il where il.taker_id = #{self.id} and il.date_to is not null"
-#  has_many :items_given , :class_name => "ItemLoan" , :finder_sql => "select il.* from item_loans il where il.giver_id = #{self.id}"
-#  has_many :items_in_possession, :class_name => "ItemLoan" , :finder_sql => "select il.* from item_loans il where il.taker_id = #{self.id} and il.date_to is null"
-
-  has_many :mails, :foreign_key => "sender_id"
+  #has_many :mails, :foreign_key => "sender_id"
 
   has_many :fees, :source => 'membership_fee'
   

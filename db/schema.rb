@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20100907154257) do
     t.binary   "data"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "io",              :limit => 8
+    t.string   "in_out",       :limit => 1
     t.string   "delivery_number"
     t.string   "size"
   end

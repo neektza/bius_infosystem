@@ -1,7 +1,7 @@
 <p>
 Tip:<br/>
-<%= f.radio_button :io, Transfer::IO::INCOMING %> Ulazni <br/>
-<%= f.radio_button :io, Transfer::IO::OUTGOING %> Izlazni
+<%= f.radio_button :in_out, Transfer::TYPE[:outgoing] %> Ulazni <br/>
+<%= f.radio_button :in_out, Transfer::TYPE[:incoming] %> Izlazni
 <p/>
 
 <p>

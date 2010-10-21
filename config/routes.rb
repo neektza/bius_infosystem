@@ -7,6 +7,7 @@ Infosystem::Application.routes.draw do
     end
     collection do
       get :search
+      get :all
       get :registrations
       post :search
     end
@@ -97,6 +98,13 @@ Infosystem::Application.routes.draw do
       get :outgoing
       get :search
       post :search
+    end
+  end
+
+  resources :items, :except => [:index] do
+    collection do
+      get :books
+      get :stuff
     end
   end
 

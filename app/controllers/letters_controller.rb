@@ -29,7 +29,7 @@ class LettersController < ApplicationController
   end
 
   def incoming
-    @letters = Letter.all(:conditions => {:io => Letter::IO::INCOMING})
+    @letters = Letter.all(:conditions => {:in_out => Letter::TYPE[:incoming]})
     if @letters.empty?
         flash.now[:notice] = "No such letters in database."
     end
@@ -41,7 +41,7 @@ class LettersController < ApplicationController
   end
 
   def outgoing
-    @letters = Letter.all(:conditions => {:io => Letter::IO::OUTGOING})
+    @letters = Letter.all(:conditions => {:in_out => Letter::TYPE[:outgoing]})
     if @letters.empty?
         flash.now[:notice] = "No such letters in database."
     end
@@ -58,6 +58,7 @@ class LettersController < ApplicationController
   
   def new
     @letter = Letter.new
+    #@next_del_nmb = 
   end
   
   def create
