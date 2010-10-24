@@ -18,8 +18,9 @@ class Member < ActiveRecord::Base
   
   has_many :items_procured, :class_name => "Item", :foreign_key => "procurer_id" , :dependent => :nullify
   
-  has_many :items_borrowed, :class_name => "ItemLoan", :foreign_key => "borrower_id" , :dependent => :nullify
-  has_many :items_in_possesion, :class_name => "ItemLoan" , :finder_sql => "select il.* from item_loans il where il.taker_id = #{self.id} and il.date_to is null"
+  has_many :items_lent, :class_name => "ItemLoan", :foreign_key => "lender_id", :dependent => :destroy
+  has_many :items_borrowed, :class_name => "ItemLoan", :foreign_key => "borrower_id", :dependent => :destroy
+  has_one :item_in_possesion, :class_name => "ItemLoan", :foreign_key => "borrower_id", :dependent => :destroy, :conditions => {:date_to => nil}
   
   has_many :transfers , :dependent => :nullify
   
@@ -34,7 +35,19 @@ class Member < ActiveRecord::Base
   validates_presence_of :last_name
   validates_presence_of :hash_pass
   validates_uniqueness_of :username
-  validates_confirmation_of :password 
+  validates_confirmation_of :password
+  
+  def name
+    "#{first_name} #{last_name}"
+  end
+
+  def self.members
+    Member.where(["auth_level >= ?", Member::ROLE[:member]])
+  end
+
+  def self.applicants
+    Member.where(["auth_level = ?", Member::ROLE[:applicants]])
+  end
 
   def self.check_expiration() 
     @members = Member.all(:conditions => "is_active = TRUE AND active_until IS NOT NULL")

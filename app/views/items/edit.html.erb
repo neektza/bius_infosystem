@@ -1,10 +1,12 @@
 <h1>Items#edit</h1>
+<%= render :partial => "show_menu" %>
+<hr/>
 
 <%= error_messages_for :item %>
 
 <% form_for @item do |form| %>
 
-Predmet:<br/>
+Naziv:<br/>
 <p><%= form.text_field :name %></p>
 		
 Inventarski broj:<br/> 
@@ -19,28 +21,6 @@ Napomena uz nabavku:<br/>
 Opis stanja:<br/>
 <p><%= form.text_area :state , :rows => 10 , :cols=> 20 %></p>
 
-Predmet nabavio:
-<p>
-	<ul>
-		<% for p in @procurers %>
-		<li><%= form.radio_button :procurer_id , p.id %> <%= p.first_name %> <%= p.last_name %></li>
-		<% end %>
-	</ul>
-</p>
-
-<p> <%= submit_tag 'Update item' %> </p>
+<p> <%= submit_tag 'Update' %> </p>
     
 <% end %>
-
-<%= link_to 'Back', items_url %>
-
-<!-- Pretrazi po clanovima...
-<% form_tag url_for(:controller => 'items', :action => 'edit') do %>
-	
-	Ime/Prezime...
-	<p><%= text_field_tag 'keyword' %></p>
-	<p><%= submit_tag "Search" %></p>
-	
-<% end %>
-
-<%= hidden_field_tag 'id' , @item.id %> -->

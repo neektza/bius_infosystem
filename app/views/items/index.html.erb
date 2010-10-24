@@ -1,41 +1,25 @@
-U izradi...
-
-<!--
 <h1>Items#index</h1>
+<%= render :partial => "index_menu" %>
+<hr/>
 
 <% unless @items.empty? %>
 
 <p>
 <table border='1'>
+    
+  <tr>
+    <th>Inv#</th>
+    <th>Naziv</th>
+  </tr>
   
-<tr>
-	<th>Inventory #</th>
-	<th>Name</th>
-	<th>Procurer</th>
-</tr>
+  <% for item in @items %>
+    <tr>
+      <td><%= link_to item.inventory_number, item_url(item) %></td>
+      <td><%= link_to item.name, item_url(item) %></td>
+    </tr>
+  <% end %>
 
-<% for item in @items %>
-<tr>
-	<td><%= link_to item.inventory_number, item_url(item) %></td>
-	<td><%= link_to item.name, item_url(item) %></td>
-
-<% if item.procurer %>
-TODO display helper
-<td><%= link_to "#{item.procurer.first_name} #{item.procurer.last_name}" , :controller=>'members' , :action=>'show' , :id=>item.procurer.id %></td>
-<% else%>
-<td><%= "nepoznato" %></td>
-<% end %>
-
-<td><%= link_to 'Edit', :action=>'edit', :id=>item.id %></td>
-<td><%= link_to 'Delete' , { :action=>'remove' , :id=>item.id } , :confirm => "Jeste li sigurni?" %></td>
-</tr>
-<% end %>
 </table>
 </p>
 
 <% end %>
-
-
-<p><%= link_to 'New', new_item_url %> | <%= link_to 'Requests', requests_items_url %> | <%= link_to 'Loans', loans_items_url %></p>
--->
-

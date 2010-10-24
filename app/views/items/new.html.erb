@@ -1,37 +1,36 @@
 <h1>Items#new</h1>
+<%= render :partial => "index_menu" %>
+<hr/>
 
 <%= error_messages_for :item %>
 
 <% form_for @item do |form| %>
-	
-Predmet:<br/>
-<p><%= form.text_field :name %></p>
 
-Inventarski broj:<br/>
-<p><%= form.text_field :inventory_number %></p>
-
-Datum nabave:<br/> 
-<p><%= form.date_select :procurement_date , :order => [:day, :month, :year] , :start_year => 2000 %></p>
-
-Napomena uz nabavku:<br/>
-<p><%= form.text_area :procurement_note , :rows => 5 , :cols=> 20 %></p>
-
-Opis stanja:<br/>
-<p><%= form.text_area :state, :rows => 10 , :cols=> 20 %></p>
-
-Predmet nabavio:
 <p>
-	<ul>
-		<% for p in @procurers %>
-		<li><%= form.radio_button :procurer_id, p.id %> <%= p.first_name %> <%= p.last_name %></li>
-		<% end %>
-		<li><%= form.radio_button :procurer_id, nil %> NEPOZNATO </li>
-	</ul>
+Predmet:<br/>
+<%= form.text_field :name %>
 </p>
 
-<p> <%= submit_tag 'Save' %> </p>
+<p>
+Inventarski broj:<br/>
+<%= form.text_field :inventory_number %>
+</p>
+
+<p>
+Datum nabave:<br/> 
+<%= form.date_select :procurement_date , :order => [:day, :month, :year] , :start_year => 2000 %>
+</p>
+
+<p>
+Napomena uz nabavku:<br/>
+<%= form.text_area :procurement_note , :rows => 5 , :cols=> 20 %>
+</p>
+
+<p>
+Opis stanja:<br/>
+<%= form.text_area :state, :rows => 10 , :cols=> 20 %>
+</p>
+
+<p> <%= submit_tag 'Create' %> </p>
     
 <% end %>
-
-<%= link_to 'Back', items_url %>
-

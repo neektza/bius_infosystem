@@ -1,19 +1,19 @@
 <h1>Items#show</h1>
-
-<%= render :partial => "menu" %>
+<%= render :partial => "show_menu" %>
+<hr/>
 
 <p>Naziv: <%=@item.name %></p>
+
 <p>Inventarski broj: <%= @item.inventory_number %></p>
-<p>Stanje: <%= @item.state %></p>
 
-<% unless @item.projects.empty? %>
-Projects:
-<ul>
-<% for p in @item.projects %>
-<li><%= link_to p.title, project_url(p.id)%></li>
-<% end %>
-</ul>
-<% end %>
+<p>Datum nabave: <%= @item.procurement_date%></p>
 
+<p>
+Napomena uz nabavku:<br/>
+<%= @item.procurement_note %>
+</p>
 
-<p><%= link_to 'Back', items_url %>  | <%= link_to 'Zaduzi' , assign_item_url(@item) %> | <%= link_to 'Razduzi' , deassign_item_url(@item) %>
+<p>
+Stanje:<br/>
+<%= @item.state %>
+</p>

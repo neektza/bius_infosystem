@@ -1,0 +1,13 @@
+<h1>Item#Loans#new</h1>
+<%= render :partial => "items/show_menu" %>
+<hr/>
+
+<%= error_messages_for :item_loan %>
+
+<%= form_for :item_loan, :url => item_loan_path(@item, @item_loan), :html => {:method => :put} do |f| %>
+
+<%= item_loans_form(f) %>
+
+<p> <%= f.submit 'Create' %> </p>
+
+<% end %>

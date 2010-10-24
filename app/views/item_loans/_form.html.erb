@@ -1,0 +1,18 @@
+<%= f.hidden_field :item_id, :value => @item.id %>
+
+<p>
+Posudio:<br/>
+<%= select :item_loan, :borrower_id, @members.collect {|m| [m.name, m.id]} %>
+</p>
+
+<%= f.hidden_field :lender_id, :value => session[:user_id] %>
+
+<p>
+Datum posudbe:<br/>
+<%= f.date_select :date_from, :order => [:day, :month, :year], :start_year => Time.now.year %>
+</p>
+
+<p>
+Datum vracanja:<br/>
+<%= f.date_select :date_to, :order => [:day, :month, :year], :start_year => Time.now.year, :include_blank => TRUE %>
+</p>

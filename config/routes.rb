@@ -101,12 +101,18 @@ Infosystem::Application.routes.draw do
     end
   end
 
-  resources :items, :except => [:index] do
+  resources :items do
     collection do
-      get :books
-      get :stuff
+      get :loans
+      get :search
+      post :search
+    end
+    resources :loans, :controller => "item_loans" do
     end
   end
+
+  #resources :books, :controller => "items" do
+  #end
 
   resources :notifications do
     collection do

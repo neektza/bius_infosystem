@@ -1,0 +1,33 @@
+<% unless @item.projects.empty? %>
+Projects:
+<ul>
+<% for p in @item.projects %>
+<li><%= link_to p.title, project_url(p.id)%></li>
+<% end %>
+</ul>
+<% end %>
+
+Predmet nabavio:
+<p>
+	<ul>
+		<% for p in @procurers %>
+		<li><%= form.radio_button :procurer_id , p.id %> <%= p.first_name %> <%= p.last_name %></li>
+		<% end %>
+	</ul>
+</p>
+
+
+<%= link_to 'Back', items_url %>
+
+<!-- Pretrazi po clanovima...
+<% form_tag url_for(:controller => 'items', :action => 'edit') do %>
+	
+	Ime/Prezime...
+	<p><%= text_field_tag 'keyword' %></p>
+	<p><%= submit_tag "Search" %></p>
+	
+<% end %>
+
+<%= hidden_field_tag 'id' , @item.id %> -->
+
+
