@@ -1,5 +1,5 @@
 class Report < ActiveRecord::Base
-  belongs_to :reportable
+  belongs_to :reportable, :polymorphic => :true
   
   def file=(stream)
     self.filename = base_part_of(stream.original_filename)

@@ -1,5 +1,5 @@
 class Transfer < ActiveRecord::Base
-  # TYPE to avoid STI
+  # To avoid STI
   TYPE = {:incoming => 'i', :outgoing => 'o'}
 
   belongs_to :member

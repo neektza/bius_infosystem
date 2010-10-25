@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100907154257) do
+ActiveRecord::Schema.define(:version => 20101025010332) do
+
+  create_table "books", :force => true do |t|
+    t.string   "author",      :null => false
+    t.string   "title",       :null => false
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "fieldwork_participations", :force => true do |t|
     t.integer  "member_id",                 :null => false
@@ -31,10 +39,10 @@ ActiveRecord::Schema.define(:version => 20100907154257) do
   end
 
   create_table "item_loans", :force => true do |t|
-    t.integer  "item_id",    :null => false
-    t.integer  "borrower_id",   :null => false
+    t.integer  "item_id",     :null => false
+    t.integer  "borrower_id", :null => false
     t.integer  "loaner_id",   :null => false
-    t.date     "date_from",  :null => false
+    t.date     "date_from",   :null => false
     t.date     "date_to"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20100907154257) do
     t.string   "inventory_number", :null => false
     t.string   "name",             :null => false
     t.text     "state"
+    t.string   "class"
     t.integer  "procurer_id"
     t.date     "procurement_date"
     t.text     "procurement_note"
@@ -79,6 +88,17 @@ ActiveRecord::Schema.define(:version => 20100907154257) do
     t.string   "in_out",          :limit => 1
     t.string   "delivery_number"
     t.string   "size"
+  end
+
+  create_table "loans", :force => true do |t|
+    t.integer  "loanable_id",   :null => false
+    t.integer  "loanable_type", :null => false
+    t.integer  "borrower_id",   :null => false
+    t.integer  "loaner_id",     :null => false
+    t.date     "date_from",     :null => false
+    t.date     "date_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "members", :force => true do |t|
@@ -184,6 +204,16 @@ ActiveRecord::Schema.define(:version => 20100907154257) do
     t.datetime "updated_at"
   end
 
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
   create_table "tags", :force => true do |t|
     t.string   "title",       :null => false
     t.text     "description"
@@ -203,15 +233,5 @@ ActiveRecord::Schema.define(:version => 20100907154257) do
     t.string   "io",              :limit => 8
     t.boolean  "is_secret"
   end
-  
-  create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
-    t.text     "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
 end
