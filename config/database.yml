@@ -4,8 +4,8 @@ development:
   database: bius-infosystem-dev
   pool: 5
   username: bius-infosystem
-  password: Eevo5oop
-  host: db.kset.org 
+  password: baraba
+  host: localhost 
   port: 5432
 
 test:
