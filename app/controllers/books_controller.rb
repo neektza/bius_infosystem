@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def loans
-    @loans = BookLoan.all(:conditions => {:date_to => nil})
+    @loans = Loan.all(:conditions => {:date_to => nil, :loanable_type => "Book"})
     if @loans.empty?
       flash[:notice] = "No loans in database."
     end
@@ -19,7 +19,6 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
   end
 
   def edit

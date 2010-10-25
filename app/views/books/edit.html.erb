@@ -4,9 +4,9 @@
 
 <%= error_messages_for :book %>
 
-<% form_for @book do |form| %>
+<% form_for @book do |f| %>
 
-<% book_form(f) %>
+<%= book_form(f) %>
 
 <p> <%= submit_tag 'Update' %> </p>
     

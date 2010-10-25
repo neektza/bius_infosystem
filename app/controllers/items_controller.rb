@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def loans
-    @loans = ItemLoan.all(:conditions => {:date_to => nil})
+    @loans = Loan.all(:conditions => {:date_to => nil, :loanable_type => "Item"})
     if @loans.empty?
       flash[:notice] = "No loans in database."
     end
@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
   end
 
   def edit

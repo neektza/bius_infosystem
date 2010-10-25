@@ -1,4 +1,6 @@
 <h1>Tags#index</h1>
+<%= render :partial => "index_menu" %>
+<hr/>
 
 <% unless @tags.empty? %>
 
@@ -11,10 +13,3 @@
 </p>
 
 <% end %>
-
-<p> 
-	<%= link_to 'New', new_tag_url %> | 
-	<%= link_to 'Search', search_tags_url %> | 
-	<%= link_to 'Generate', generate_tags_url %>
-</p>
-

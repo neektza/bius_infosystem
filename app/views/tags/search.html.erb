@@ -1,4 +1,6 @@
 <h1>Tags#search</h1>
+<%= render :partial => "index_menu" %>
+<hr/>
 
 <% form_tag search_tags_path do %>
 <p>
@@ -28,6 +30,3 @@ Title...<br/>
 </p>
 </table>
 <% end %>
-
-
-<p><%= link_to 'Back', tags_url %></p>

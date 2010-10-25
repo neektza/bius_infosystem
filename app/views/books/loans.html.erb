@@ -5,7 +5,12 @@
 <% unless @loans.empty? %>
 <ul>
   <% for l in @loans %>
-    <li>Posudio: <%= link_to member_url(l.borrower) %> | Odobrio: <%= link_to member_url(l.lender) %> | Period: <%= l.period %></li>
+    <li>
+      Knjiga: <%= link_to l.loanable.title, book_loans_url(l.loanable) %> | 
+      Posudio: <%= link_to l.borrower.name, member_url(l.borrower) %> | 
+      Odobrio: <%= link_to l.lender.name,  member_url(l.lender) %> | 
+      Od: <%= l.date_from %> | 
+      Do: <%= l.date_to %>
   <% end %>
 </ul>
 <% end %>

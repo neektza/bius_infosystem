@@ -18,9 +18,9 @@ class Member < ActiveRecord::Base
   
   has_many :items_procured, :class_name => "Item", :foreign_key => "procurer_id" , :dependent => :nullify
   
-  has_many :items_lent, :class_name => "ItemLoan", :foreign_key => "lender_id", :dependent => :destroy
-  has_many :items_borrowed, :class_name => "ItemLoan", :foreign_key => "borrower_id", :dependent => :destroy
-  has_one :item_in_possesion, :class_name => "ItemLoan", :foreign_key => "borrower_id", :dependent => :destroy, :conditions => {:date_to => nil}
+  #has_many :loans, :class_name => "Loan", :foreign_key => "lender_id", :dependent => :destroy
+  #has_many :borrowes, :class_name => "ItemLoan", :foreign_key => "borrower_id", :dependent => :destroy
+  #has_one :item_in_possesion, :class_name => "ItemLoan", :foreign_key => "borrower_id", :dependent => :destroy, :conditions => {:date_to => nil}
   
   has_many :transfers , :dependent => :nullify
   

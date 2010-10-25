@@ -1,0 +1,13 @@
+<h1>Book#Loans#edit</h1>
+<%= render :partial => "books/show_menu" %>
+<hr/>
+
+<%= error_messages_for :loan %>
+
+<%= form_for [@book, @loan] do |f| %>
+
+<%= book_loans_form(f) %>
+
+<p> <%= f.submit 'Update' %> </p>
+
+<% end %>

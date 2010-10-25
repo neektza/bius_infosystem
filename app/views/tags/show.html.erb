@@ -1,11 +1,6 @@
 <h1>Tags#show</h1>
+<%= render :partial => "show_menu" %>
+<hr/>
 
-<p>
-	<%= @tag.title %> | 
-	<%= link_to '[e]', edit_tag_url(@tag) %> | 
-	<%= link_to '[x]', tag_url(@tag), :method => :delete %>
-</p>
-
-<p>Description: <%= @tag.description %><p/> 
-
-<p><%= link_to 'Back', tags_url %></p>
+<p>Naslov: <%= @tag.title %></p> 
+<p>Description: <%= @tag.description %></p> 

@@ -4,10 +4,10 @@
 
 <%= error_messages_for :item %>
 
-<% form_for @item do |f| %>
+<% form_for Item.new do |f| %>
 
 <%= item_form(f) %>
 
-<p> <%= f.submit 'Create' %> </p>
+<p> <%= submit_tag 'Create' %> </p>
     
 <% end %>
