@@ -3,10 +3,7 @@ Dopis:</br>
 <%= file_field :letter, :file %>
 </p>
 
-<p>
-<%= f.radio_button :in_out, Letter::TYPE[:incoming] %> Dolazni <br/>
-<%= f.radio_button :in_out, Letter::TYPE[:outgoing]%> Odlazni
-<p/>
+<p> Tip: <%= f.select :in_out, {"Dolazni" => Transfer::TYPE[:incoming], "Odlazni" => Transfer::TYPE[:incoming]}, {:include_blank => true} %> <p/>
 
 <p>
 Datum slanja/primanja:<br/>

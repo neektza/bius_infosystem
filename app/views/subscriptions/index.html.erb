@@ -1,9 +1,10 @@
 <h1>Subscriptions#index</h1>
+<%= render :partial => "index_menu" %>
+<hr/>
 
 <% unless @subscriptions.empty? %>
 
 <p>
-<%= @member.username %>'s subscriptions:<br/>
 <ul>
 <% for s in @subscriptions %>
  <li><%= s.title %></li>
@@ -19,5 +20,3 @@
 </p>
 
 <% end %>
-
-<%= link_to 'Edit subscriptions', change_member_subscriptions_url(session[:user_id]) %>

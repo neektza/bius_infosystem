@@ -1,19 +1,20 @@
 <h1>Subscriptions#change</h1>
+<%= render :partial => "index_menu" %>
+<hr/>
 
 <% unless @subscriptions.empty? %>
 
 <p>
-Tags:<br/>
 <% form_tag member_subscriptions_url(session[:user_id]) do %>
-<% for tag in @subscriptions %>
- <%= check_box_tag ('tag_ids[]', tag.id , @member.tag_ids.include?(tag.id)) %> | <%= tag.title %>  <br/>
-<% end %>
-<p><%= submit_tag 'Save' %></p>
+  
+  <% for tag in @subscriptions %>
+    <%= check_box_tag 'tag_ids[]', tag.id , @member.tag_ids.include?(tag.id) %> | <%= tag.title %>  <br/>
+  <% end %>
+
+  <p> <%= submit_tag 'Save' %></p>
 <% end %>
 </p>
 
 <% else %>
 <p><%= flash[:tags] %></p>
 <% end %>
-
-<%= link_to 'Back', member_subscriptions_url(session[:user_id]) %>

@@ -20,7 +20,7 @@ Body:<br/>
 Tags: |
 <% for tag in @tags %>
  <%= tag.title %>
- <%= check_box_tag ('tag_ids[]', tag.id , @notification.tag_ids.include?(tag.id)) %> |
+ <%= check_box_tag 'tag_ids[]', tag.id , @notification.tag_ids.include?(tag.id) %> |
 <% end %>
 </p>
 
