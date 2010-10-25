@@ -1,0 +1,11 @@
+<h1>Books#Loans</h1>
+<%= render :partial => "index_menu" %>
+<hr/>
+
+<% unless @loans.empty? %>
+<ul>
+  <% for l in @loans %>
+    <li>Posudio: <%= link_to member_url(l.borrower) %> | Odobrio: <%= link_to member_url(l.lender) %> | Period: <%= l.period %></li>
+  <% end %>
+</ul>
+<% end %>

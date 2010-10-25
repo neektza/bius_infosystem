@@ -1,0 +1,13 @@
+<h1>Books#new</h1>
+<%= render :partial => "index_menu" %>
+<hr/>
+
+<%= error_messages_for :book %>
+
+<% form_for @book do |f| %>
+
+<%= book_form(f) %>
+
+<p> <%= submit_tag 'Create' %> </p>
+    
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Books#edit</h1>
+<%= render :partial => "show_menu" %>
+<hr/>
+
+<%= error_messages_for :book %>
+
+<% form_for @book do |form| %>
+
+<% book_form(f) %>
+
+<p> <%= submit_tag 'Update' %> </p>
+    
+<% end %>

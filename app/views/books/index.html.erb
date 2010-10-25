@@ -1,0 +1,25 @@
+<h1>Books#index</h1>
+<%= render :partial => "index_menu" %>
+<hr/>
+
+<% unless @books.empty? %>
+
+<p>
+<table border='1'>
+    
+  <tr>
+    <th>Autor</th>
+    <th>Naziv</th>
+  </tr>
+  
+  <% for book in @books %>
+    <tr>
+      <td><%= book.author %></td>
+      <td><%= link_to book.title, book_url(book) %></td>
+    </tr>
+  <% end %>
+
+</table>
+</p>
+
+<% end %>

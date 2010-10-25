@@ -7,4 +7,7 @@ class Loan < ActiveRecord::Base
   def self.period
     self.date_to - self.date_from
   end
+
+#  def check_if_multiple_loan
+#  end
 end

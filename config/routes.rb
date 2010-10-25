@@ -1,5 +1,5 @@
 Infosystem::Application.routes.draw do
- 
+
   resources :members do
     member do
       get :accept
@@ -111,8 +111,15 @@ Infosystem::Application.routes.draw do
     end
   end
 
-  #resources :books, :controller => "items" do
-  #end
+  resources :books do
+    collection do
+      get :loans
+      get :search
+      post :search
+    end
+    resources :loans, :controller => "book_loans" do
+    end
+  end
 
   resources :notifications do
     collection do

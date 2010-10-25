@@ -230,7 +230,7 @@ ActiveRecord::Schema.define(:version => 20101025010332) do
     t.date     "date",                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "io",              :limit => 8
+    t.string   "in_out",          :limit => 1
     t.boolean  "is_secret"
   end
 

@@ -4,23 +4,10 @@
 
 <%= error_messages_for :item %>
 
-<% form_for @item do |form| %>
+<% form_for @item do |f| %>
 
-Naziv:<br/>
-<p><%= form.text_field :name %></p>
-		
-Inventarski broj:<br/> 
-<p><%= form.text_field :inventory_number %></p>
-    
-Datum nabave:<br/> 
-<p><%= form.date_select :procurement_date , :order => [:day, :month, :year] , :start_year => 2000 %></p>
+<%= item_form(f) %>
 
-Napomena uz nabavku:<br/>
-<p><%= form.text_area :procurement_note , :rows => 10 , :cols=> 20 %></p>
-
-Opis stanja:<br/>
-<p><%= form.text_area :state , :rows => 10 , :cols=> 20 %></p>
-
-<p> <%= submit_tag 'Update' %> </p>
+<p> <%= f.submit 'Update' %> </p>
     
 <% end %>
