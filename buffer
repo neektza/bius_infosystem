@@ -63,3 +63,34 @@ Predmeti u proslosti kod clana:
 </ul>
 
 
+Razina prava #FIXME:<br/>
+<p>
+<%= f.radio_button :auth_level, "1" %> <%=t :auth_level:member %><br/>
+<%= f.radio_button :auth_level, "2" %> <%=t :auth_level:leader %><br/>
+<%= f.radio_button :auth_level, "3" %> <%=t :auth_level:supervisory_board %><br/>
+<%= f.radio_button :auth_level, "4" %> <%=t :auth_level:administrative_board %><br/>
+<%= f.radio_button :auth_level, "5" %> <%=t :auth_level:admin %><br/>
+<p/>
+
+<h1>Member#Items</h1>
+
+<%= render :partial => "menu" %>
+
+<ul>
+<% for i in @items_in_possession %>
+<li> 
+<%= link_to "#{i.item.inv_no} | #{i.item.name}" , :controller => 'items' , :action => 'show' , :id => i.item.id %> |
+<%= link_to 'Oslobodi predmet' , :controller=>'items' , :action => 'dealloc' , :id => i.item.id , :requester_id => session[:user_id] %>
+</li>
+
+<% end %>
+</ul>
+
+Predmeti u proslosti kod clana:
+<ul>
+<% for i in @items_taken %>
+<li> <%= link_to "#{i.item.inv_no} | #{i.item.name}" , :controller => 'items' , :action => 'show' , :id => i.item.id %> </li>
+<% end %>
+</ul>
+
+
