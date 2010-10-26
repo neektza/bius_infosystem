@@ -1,6 +1,7 @@
-<h1>Members#index</h1>
-<%= render :partial => "index_menu" %> - <%= render :partial => "sub_menu" %>
-<hr/>
+<% content_for :head do %> 
+<%= render :partial => "index_menu" %> : 
+<%= render :partial => "sub_menu" %>
+<% end %>
 
 <% unless @members.empty? %>
 

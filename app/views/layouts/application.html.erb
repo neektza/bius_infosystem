@@ -20,7 +20,15 @@
 
   <div id="main">
     <div id="head">
-      <%= yield :head%>
+      <p>
+        <%= params[:controller] + "#" + params[:action] %>
+        <% if flash[:notice] -%>
+          <%= ": " + flash[:notice] %>
+        <% end -%>
+      </p>
+
+      <%= yield :head %>
+      <hr/>
     </div>
     <div id="body"/>
       <%= yield %>
