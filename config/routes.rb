@@ -52,9 +52,8 @@ Infosystem::Application.routes.draw do
         get :registrations
       end
     end
-    resources :reports, :controller => "project_reports", :except => [:index, :new, :edit, :update] do
+    resource :report, :controller => "project_reports", :except => [:index, :edit, :update] do
        member do
-        get :upload
         get :download
       end
     end
@@ -71,9 +70,8 @@ Infosystem::Application.routes.draw do
         get :registrations
       end
     end
-    resources :reports, :controller => "fieldwork_reports", :except => [:index, :new, :edit, :update] do
+    resource :report, :controller => "fieldwork_reports", :except => [:index, :edit, :update] do
        member do
-        get :upload
         get :download
       end
     end

@@ -8,7 +8,7 @@ class FieldworkReportsController < ApplicationController
     end
   end
 
-  def upload
+  def new
     @fieldwork = Fieldwork.find(params[:fieldwork_id])
   end
 

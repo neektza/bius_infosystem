@@ -1,6 +1,6 @@
-<h1>Letters#index</h1>
-<%= render :partial => "index_menu" %> - <%= render :partial => "sub_menu" %>
-<hr/>
+<% content_for :head do %> 
+<%= render :partial => "index_menu" %> : <%= render :partial => "sub_menu" %>
+<% end %>
 
 <% unless @letters.empty? %>
 
@@ -8,20 +8,20 @@
 <table border='1'>
 
 <tr>
+<th>Ur #</th>
 <th>Posiljatelj</th>
 <th>Primatelj</th>
 <th>Predmet</th>
 <th>Datum</th>
-<th>Urudzbeni #</th>
 </tr>
 
 <% for l in @letters %>
 <tr>
+<td><%= link_to l.delivery_number, letter_url(l) %></td>
 <td><%=h l.from %></td>
 <td><%=h l.to %></td>
-<td><%= link_to l.subject, letter_url(l) %></td>
+<td><%=h l.subject %></td>
 <td><%=h l.date %></td>
-<td><%=h l.delivery_number %></td>
 
 </tr>
 <% end %>

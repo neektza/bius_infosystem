@@ -94,3 +94,6 @@ Predmeti u proslosti kod clana:
 </ul>
 
 
+
+<%= link_to 'Items', project_loanables_url(@project) %>
+

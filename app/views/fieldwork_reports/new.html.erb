@@ -1,5 +1,6 @@
-<h1>Fieldwork#Report#upload</h1>
-<%= render :partial => "/fieldworks/show_menu" %>
+<% content_for :head do %> 
+<%= render :partial => "fieldworks/show_menu" %>
+<% end %>
 
 <p><%= error_messages_for :reports %></p>
 
@@ -15,5 +16,3 @@ Izvjestaj za spremanje:</br>
 </p>
 
 <% end %>
-
-<%= link_to 'Back', fieldwork_report_url(@fieldwork) %>

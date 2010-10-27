@@ -1,5 +1,6 @@
-<h1>Section#Reports#new</h1>
-<%= render :partial => "/sections/show_menu" %>
+<% content_for :head do %> 
+<%= render :partial => "sections/show_menu" %>
+<% end %>
 
 <p><%= error_messages_for :reports %></p>
 

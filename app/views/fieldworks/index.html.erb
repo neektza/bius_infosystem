@@ -1,14 +1,15 @@
-<h1>Fieldworks#index</h1>
+<% content_for :head do %> 
 <%= render :partial => "index_menu" %>
+<% end %>
 
 <% unless @fieldworks.empty? %>
 <p>
-<ul>
 
+<ul>
 <% for fieldwork in @fieldworks %>
 <li><%= link_to fieldwork.location, fieldwork_url(fieldwork) %></li>
 <% end %>
-
 </ul>
+
 </p>
 <% end %>

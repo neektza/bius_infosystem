@@ -1,6 +1,6 @@
-<h1>Notifications#index</h1>
-<p><%= render :partial => "index_menu" %> - <%= render :partial => "sub_menu" %></p>
-<hr/>
+<% content_for :head do %> 
+<%= render :partial => "index_menu" %> : <%= render :partial => "sub_menu" %>
+<% end %>
 
 <% unless @notifications.empty? %>
 
