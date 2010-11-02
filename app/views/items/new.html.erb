@@ -1,10 +1,9 @@
-<h1>Items#new</h1>
+<% content_for :head do %> 
 <%= render :partial => "index_menu" %>
-<hr/>
+<% end %>
 
-<%= error_messages_for :item %>
 
-<% form_for Item.new do |f| %>
+<% form_for @item do |f| %>
 
 <%= item_form(f) %>
 
