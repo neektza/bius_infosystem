@@ -6,8 +6,4 @@ module TransfersHelper
     end
     return rs
   end
-
-  def transfer_form(form)
-    render :partial => 'form', :locals => {:f => form}
-  end
 end

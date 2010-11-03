@@ -1,11 +1,12 @@
-<h1>Transfers#new</h1>
+<% content_for :head do %> 
 <%= render :partial => "index_menu" %>
+<% end %>
 
 <%= error_messages_for :transfer %>
 
 <% form_for @transfer do |f| %>
 
-<%= transfer_form(f) %>
+<%= render_form(f, 'form') %>
 
 <p><%= f.submit 'Create' %></p>
 

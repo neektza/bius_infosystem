@@ -1,12 +1,15 @@
-<h1>Members#Membership_fees#index</h1>
+<% content_for :head do %> 
 <%= render :partial => "members/show_menu" %>
-
-<% if @member %>
-
-<% for f in @member.fees %>
-<%= f.year %>
 <% end %>
 
-<%= link_to "New", new_member_fee_url %>
+<% if @fees %>
+
+<ul>
+<% for f in @fees %>
+<li><%= f.year %> <%= link_to "[x]", member_membership_fee_url(@member, f), :method => :delete %></li>
+<% end %>
+</ul>
 
 <% end %>
+
+<%= link_to "New", new_member_membership_fee_url %>

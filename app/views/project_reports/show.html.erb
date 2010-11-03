@@ -1,5 +1,6 @@
-<h1>Project#Report</h1>
-<%= render :partial => "/projects/show_menu" %>
+<% content_for :head do %> 
+<%= render :partial => "projects/show_menu" %>
+<% end %>
 
 <% unless @project.report.nil? %>
 
@@ -11,4 +12,4 @@ filename: <%= @project.report.filename %> |
 <br/>
 <% end %>
 
-<p><%= link_to 'Upload', upload_project_report_url %></p>
+<p><%= link_to 'New', new_project_report_url(@project) %></p>

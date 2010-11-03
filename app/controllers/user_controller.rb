@@ -14,7 +14,6 @@ class UserController < ApplicationController
 	  if user
 		session[:user_id] = user.id
 		session[:user_username] = user.username
-		session[:user_auth_level] = user.auth_level
 		uri = session[:original_uri]
 		session[:original_uri] = nil
 		redirect_to uri || members_url
@@ -28,7 +27,6 @@ class UserController < ApplicationController
   def logout
 	session[:user_id] = nil
 	session[:user_username] = nil
-	session[:user_auth_level] = nil
 	flash[:notice] = "message.logout" #t(messages.logout)
     redirect_to login_user_url
   end

@@ -1,5 +1,6 @@
-<h1>Fieldwork#Report</h1>
-<%= render :partial => "/fieldworks/show_menu" %>
+<% content_for :head do %> 
+<%= render :partial => "fieldworks/show_menu" %>
+<% end %>
 
 <% unless @fieldwork.report.nil? %>
 
@@ -11,4 +12,4 @@ filename: <%= @fieldwork.report.filename %> |
 <br/>
 <% end %>
 
-<p><%= link_to 'Upload', upload_fieldwork_report_url %></p>
+<p><%= link_to 'New', new_fieldwork_report_url(@fieldwork) %></p>

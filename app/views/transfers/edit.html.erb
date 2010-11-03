@@ -1,11 +1,12 @@
-<h1>Transfer#edit</h1>
+<% content_for :head do %> 
 <%= render :partial => "show_menu" %>
+<% end %>
 
 <%= error_messages_for :transfer %>
 
 <% form_for @transfer do |f| %>
 
-<%= transfer_form(f) %>
+<%= render_form(f, 'form') %>
 
 <p><%= f.submit 'Update' %></p>
 

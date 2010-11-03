@@ -1,5 +1,6 @@
-<h1>Project#Participation#new</h1>
-<%= render :partial => "/projects/show_menu" %>
+<% content_for :head do %> 
+<%= render :partial => "projects/show_menu" %>
+<% end %>
 
 <%= error_messages_for :project_participations %>
 

@@ -2,7 +2,8 @@ class ProjectParticipationsController < ApplicationController
   before_filter :authorize
 
   def index
-    @project = Project.find(params[:project_id]) # for show_menu
+    #for show_menu
+    @project = Project.find(params[:project_id])
     @participations = ProjectParticipation.all(:conditions => {:project_id => params[:project_id], :role => ProjectParticipation::ROLE[:participant]})
     @leaderships = ProjectParticipation.all(:conditions => {:project_id => params[:project_id], :role => ProjectParticipation::ROLE[:leader]})
   end

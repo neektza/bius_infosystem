@@ -1,6 +1,6 @@
-<h1>Book#Loans#index</h1>
+<% content_for :head do %> 
 <%= render :partial => "books/show_menu" %>
-<hr/>
+<% end %>
 
 <% unless @book.loans.empty? %>
 <ul>
@@ -10,7 +10,7 @@
   Posudio: <%= link_to l.borrower.name, member_url(l.borrower) %> | 
   Odobrio: <%= link_to l.lender.name, member_url(l.lender) %> | 
   Datum posudbe: <%= link_to l.date_from, edit_book_loan_url(@book, l) %> | 
-  Datum povratka: <%= link_to l.date_to, edit_book_loan_url(l) if l.date_to %>
+  Datum povratka: <%= link_to l.date_to, edit_book_loan_url(@book, l) if l.date_to %>
   </li>
   <% end %>
 </ul>

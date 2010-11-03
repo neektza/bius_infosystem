@@ -8,7 +8,7 @@ class ProjectReportsController < ApplicationController
     end
   end
 
-  def upload
+  def new
     @project = Project.find(params[:project_id])
   end
 

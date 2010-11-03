@@ -19,12 +19,16 @@
   </div>
 
   <div id="main">
-    <div id="notice">
-	  <p>
-	    <% if flash[:notice] -%>
-        <%= flash[:notice] %>
+    <div id="head">
+      <p>
+        <b><%= params[:controller] + "#" + params[:action] %></b>
+        <% if flash[:notice] -%>
+          <%= ": " + flash[:notice] %>
         <% end -%>
       </p>
+
+      <%= yield :head %>
+      <hr/>
     </div>
     <div id="body"/>
       <%= yield %>

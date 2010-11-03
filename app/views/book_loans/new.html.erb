@@ -1,12 +1,12 @@
-<h1>Book#Loans#new</h1>
+<% content_for :head do %> 
 <%= render :partial => "books/show_menu" %>
-<hr/>
+<% end %>
 
 <%= error_messages_for :loan %>
 
 <%= form_for [@book, @loan] do |f| %>
 
-<%= book_loans_form(f) %>
+<%= render_form(f, 'loans/form') %>
 
 <p> <%= f.submit 'Create' %> </p>
 

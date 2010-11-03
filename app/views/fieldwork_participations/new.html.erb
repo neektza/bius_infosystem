@@ -1,5 +1,6 @@
-<h1>Fieldwork#Participation#new</h1>
-<%= render :partial => "/fieldworks/show_menu" %>
+<% content_for :head do %> 
+<%= render :partial => "fieldworks/show_menu" %>
+<% end %>
 
 <%= error_messages_for :fieldwork_participations %>
 

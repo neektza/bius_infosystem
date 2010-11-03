@@ -5,3 +5,4 @@ tmp/**/*
 *.swp
 passenger*
 Gemfile.lock
+config/database.yml

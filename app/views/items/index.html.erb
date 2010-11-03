@@ -1,7 +1,6 @@
-<h1>Items#index</h1>
-u izradi
-<!-- <%= render :partial => "index_menu" %>
-<hr/>
+<% content_for :head do %> 
+<%= render :partial => "index_menu" %>
+<% end %>
 
 <% unless @items.empty? %>
 
@@ -24,5 +23,3 @@ u izradi
 </p>
 
 <% end %>
-
--->

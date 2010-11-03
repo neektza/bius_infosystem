@@ -16,7 +16,7 @@ Infosystem::Application.routes.draw do
         get :change
       end
     end
-    resources :fees, :controller => "membership_fees"
+    resources :membership_fees, :only => [:index, :new, :create, :destroy]
     resources :sections, :controller => "member_sections", :only => [:index]
     resources :projects, :controller => "member_projects", :only => [:index]
     resources :fieldworks, :controller => "member_fieldworks", :only => [:index]
@@ -52,9 +52,8 @@ Infosystem::Application.routes.draw do
         get :registrations
       end
     end
-    resources :reports, :controller => "project_reports", :except => [:index, :new, :edit, :update] do
+    resource :report, :controller => "project_reports", :except => [:index, :edit, :update] do
        member do
-        get :upload
         get :download
       end
     end
@@ -71,9 +70,8 @@ Infosystem::Application.routes.draw do
         get :registrations
       end
     end
-    resources :reports, :controller => "fieldwork_reports", :except => [:index, :new, :edit, :update] do
+    resource :report, :controller => "fieldwork_reports", :except => [:index, :edit, :update] do
        member do
-        get :upload
         get :download
       end
     end
@@ -107,8 +105,7 @@ Infosystem::Application.routes.draw do
       get :search
       post :search
     end
-    resources :loans, :controller => "item_loans" do
-    end
+    resources :loans, :controller => "item_loans"
   end
 
   resources :books do
@@ -117,8 +114,7 @@ Infosystem::Application.routes.draw do
       get :search
       post :search
     end
-    resources :loans, :controller => "book_loans" do
-    end
+    resources :loans, :controller => "book_loans"
   end
 
   resources :notifications do

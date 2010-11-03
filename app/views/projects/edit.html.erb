@@ -1,11 +1,12 @@
-<h1>Projects#edit</h1>
+<% content_for :head do %> 
 <%= render :partial => "show_menu" %>
+<% end %>
 
 <%= error_messages_for :project %>
 
 <% form_for @project do |f| %>
 
-<%= project_form(f) %>
+<%= render_form(f, 'form') %>
 
 <p><%= f.submit "Update" %></p>
   

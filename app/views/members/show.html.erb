@@ -1,5 +1,6 @@
-<h1>Members#show</h1>
+<% content_for :head do %> 
 <%= render :partial => "show_menu" %>
+<% end %>
 
 <p>Ime: <%= @member.first_name %></p>
 <p>Prezime: <%= @member.last_name %></p>

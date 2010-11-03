@@ -1,5 +1,6 @@
-<h1>Section#Report#upload</h1>
-<%= render :partial => "/projects/show_menu" %>
+<% content_for :head do %> 
+<%= render :partial => "projects/show_menu" %>
+<% end %>
 
 <p><%= error_messages_for :reports %></p>
 

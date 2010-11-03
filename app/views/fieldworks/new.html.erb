@@ -1,11 +1,12 @@
-<h1>Fieldworks#new</h1>
+<% content_for :head do %> 
 <%= render :partial => "index_menu" %>
+<% end %>
 
 <%= error_messages_for :fieldwork %>
 
 <% form_for @fieldwork do |f| %>
 
-<%= fieldworks_form(f) %>
+<%= render_form(f, 'form') %>
 
 <p><%= f.submit "Create" %></p>
 

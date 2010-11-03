@@ -1,10 +1,11 @@
-<h1>Section#Memberships#index</h1>
+<% content_for :head do %> 
 <%= render :partial => "sections/show_menu" %>
+<% end %>
 
 
 <p>
-Clanovi:<br/>
 <% unless @memberships.empty? %>
+Clanovi:<br/>
 <ul>
 
 <% for m in @memberships %>
@@ -16,13 +17,14 @@ Clanovi:<br/>
 <% end %>
 
 </ul>
+
+<hr/>
 <% end %>
 </p>
-<hr/>
 
 <p>
-Voditelji:<br/>
 <% unless @leaderships.empty? %>
+Voditelji:<br/>
 <ul>
 
 <% for l in @leaderships %>
@@ -34,9 +36,10 @@ Voditelji:<br/>
 <% end %>
 
 </ul>
+<hr/>
+
 <% end %>
 </p>
-<hr/>
 
 <p>
 <%= link_to 'New', new_section_membership_url(@section) %> | 

@@ -1,5 +1,6 @@
-<h1>Fieldwork#Participations#index</h1>
-<%= render :partial => "/fieldworks/show_menu" %>
+<% content_for :head do %> 
+<%= render :partial => "fieldworks/show_menu" %>
+<% end %>
 
 <p>
 <% unless @participations.empty? %>
@@ -15,6 +16,7 @@ Clanovi:<br/>
 <% end %>
 
 </ul>
+<hr/>
 <% end %>
 </p>
 
@@ -32,9 +34,9 @@ Voditelji:<br/>
 <% end %>
 
 </ul>
+<hr/>
 <% end %>
 </p>
-<hr/>
 
 <p>
 <%= link_to 'New', new_fieldwork_participation_url(@fieldwork) %> |

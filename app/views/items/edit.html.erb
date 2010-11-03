@@ -1,12 +1,12 @@
-<h1>Items#edit</h1>
+<% content_for :head do %> 
 <%= render :partial => "show_menu" %>
-<hr/>
+<% end %>
 
 <%= error_messages_for :item %>
 
 <% form_for @item do |f| %>
 
-<%= item_form(f) %>
+<%= render_form(f, 'form') %>
 
 <p> <%= f.submit 'Update' %> </p>
     

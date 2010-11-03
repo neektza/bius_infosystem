@@ -38,16 +38,6 @@ ActiveRecord::Schema.define(:version => 20101025010332) do
     t.datetime "updated_at"
   end
 
-  create_table "item_loans", :force => true do |t|
-    t.integer  "item_id",     :null => false
-    t.integer  "borrower_id", :null => false
-    t.integer  "loaner_id",   :null => false
-    t.date     "date_from",   :null => false
-    t.date     "date_to"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "items", :force => true do |t|
     t.string   "inventory_number", :null => false
     t.string   "name",             :null => false
@@ -91,14 +81,14 @@ ActiveRecord::Schema.define(:version => 20101025010332) do
   end
 
   create_table "loans", :force => true do |t|
-    t.integer  "loanable_id",   :null => false
-    t.integer  "loanable_type", :null => false
     t.integer  "borrower_id",   :null => false
-    t.integer  "loaner_id",     :null => false
+    t.integer  "lender_id",     :null => false
     t.date     "date_from",     :null => false
     t.date     "date_to"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "loanable_id",   :null => false
+    t.string   "loanable_type", :null => false
   end
 
   create_table "members", :force => true do |t|

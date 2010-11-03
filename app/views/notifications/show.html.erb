@@ -1,6 +1,6 @@
-<h1>Notifications#show</h1>
-<p><%= render :partial => "show_menu" %></p>
-<hr/>
+<% content_for :head do %> 
+<%= render :partial => "show_menu" %>
+<% end %>
 
 Naslov: <%= @notification.title %><br/>
 

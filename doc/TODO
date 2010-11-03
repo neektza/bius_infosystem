@@ -3,11 +3,14 @@ FIX delete self
 
 TODO ur_br generacija
 TODO inventar - validation mult loan
+
+TODO auth auth auth
+TODO helper form_for fix
+
+TODO https (ssl)
 ---
-TODO auth modul reorganizacija i popravci + prava
 TODO mail integracija
 TODO pagination
-TODO https (ssl)
 
 * knjiznica
 Autor
