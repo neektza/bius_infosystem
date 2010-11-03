@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
   # Check user's authorization level
   def check_user_auth_level(level)
     if session[:user_id]
-      unless session[:user_auth_level].to_i >= level.to_i
+      unless Member.find(session[:user_id]).auth_level.to_i >= level.to_i
         flash[:notice] = "Nemate potrebna prava za pristup akciji!"
         redirect_to(:controller => 'auth', :action => 'norights')
       end

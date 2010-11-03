@@ -18,14 +18,12 @@ class Member < ActiveRecord::Base
   
   has_many :items_procured, :class_name => "item", :foreign_key => "procurer_id" , :dependent => :nullify
   
-  #has_many :loans, :class_name => "loan", :foreign_key => "lender_id", :dependent => :destroy
-  #has_many :borrowes, :class_name => "itemloan", :foreign_key => "borrower_id", :dependent => :destroy
-  #has_one :item_in_possesion, :class_name => "itemloan", :foreign_key => "borrower_id", :dependent => :destroy, :conditions => {:date_to => nil}
+  has_many :given_items, :class_name => "Loan", :foreign_key => "lender_id", :dependent => :destroy
+  has_many :taken_items, :class_name => "Loan", :foreign_key => "borrower_id", :dependent => :destroy
+  has_one :item_in_possesion, :class_name => "itemloan", :foreign_key => "borrower_id", :dependent => :destroy, :conditions => {:date_to => nil}
   
   has_many :transfers , :dependent => :nullify
   
-  #has_many :mails, :foreign_key => "sender_id"
-
   has_many :membership_fees
   
   has_and_belongs_to_many :tags

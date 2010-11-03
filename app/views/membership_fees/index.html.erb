@@ -6,7 +6,7 @@
 
 <ul>
 <% for f in @fees %>
-<li><%= f.year %></li>
+<li><%= f.year %> <%= link_to "[x]", member_membership_fee_url(@member, f), :method => :delete %></li>
 <% end %>
 </ul>
 
