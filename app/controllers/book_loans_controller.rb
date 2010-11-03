@@ -56,5 +56,4 @@ class BookLoansController < ApplicationController
 	  redirect_to book_loans_url(@book)
 	end
   end
-
 end

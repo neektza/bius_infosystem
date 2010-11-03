@@ -2,10 +2,11 @@
 <%= render :partial => "index_menu" %>
 <% end %>
 
+<%= error_messages_for :item %>
 
-<% form_for @item do |f| %>
+<% form_for Item.new do |f| %>
 
-<%= item_form(f) %>
+<%= render_form(f, 'form') %>
 
 <p> <%= submit_tag 'Create' %> </p>
     

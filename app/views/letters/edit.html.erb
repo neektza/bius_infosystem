@@ -6,7 +6,7 @@
 
 <% form_for @letter, :html => {:multipart => true} do |f| %>
 
-<%= letter_form(f) %>
+<%= render_form(f, 'form') %>
 
 <p><%= f.submit 'Update' %></p>
 

@@ -1,14 +1,16 @@
-<h1>Item#Loans#index</h1>
+<% content_for :head do %> 
 <%= render :partial => "items/show_menu" %>
+<% end %>
 
 <% unless @item.loans.empty? %>
 <ul>
   <% for l in @item.loans %>
   <li>
+  <%= link_to "[x]", item_loan_url(@item, l), :method => :delete %> |
   Posudio: <%= link_to l.borrower.name, member_url(l.borrower) %> | 
   Odobrio: <%= link_to l.lender.name, member_url(l.lender) %> | 
   Datum posudbe: <%= link_to l.date_from, edit_item_loan_url(@item, l) %> | 
-  Datum povratka: <%= link_to l.date_to, edit_item_loan_url(l) if l.date_to %>
+  Datum povratka: <%= link_to l.date_to, edit_item_loan_url(@item, l) if l.date_to %>
   </li>
   <% end %>
 </ul>

@@ -1,13 +1,16 @@
-<h1>Members#Membership_fees#new</h1>
+<% content_for :head do %> 
 <%= render :partial => "members/show_menu" %>
+<% end %>
 
-<% form_tag member_membership_fees_url(@member) do %>
+<% form_for [@member, @fee] do |f| %>
+
+<%= error_message_on "membership_fee", "year" %>
 
 <p>
 Uplata za godinu:</br>
 <%= select_year Date.today %> 
 </p>
 
-<p><%= submit_tag 'Submit' %></p>
+<p><%= f.submit 'Create' %></p>
 
 <% end %>

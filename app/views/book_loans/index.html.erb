@@ -10,7 +10,7 @@
   Posudio: <%= link_to l.borrower.name, member_url(l.borrower) %> | 
   Odobrio: <%= link_to l.lender.name, member_url(l.lender) %> | 
   Datum posudbe: <%= link_to l.date_from, edit_book_loan_url(@book, l) %> | 
-  Datum povratka: <%= link_to l.date_to, edit_book_loan_url(l) if l.date_to %>
+  Datum povratka: <%= link_to l.date_to, edit_book_loan_url(@book, l) if l.date_to %>
   </li>
   <% end %>
 </ul>

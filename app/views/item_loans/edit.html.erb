@@ -1,11 +1,12 @@
-<h1>Item#Loans#edit</h1>
+<% content_for :head do %> 
 <%= render :partial => "items/show_menu" %>
+<% end %>
 
-<%= error_messages_for :item_loan %>
+<%= error_messages_for :loan %>
 
-<%= form_for @item_loan do |f| %>
+<%= form_for [@item, @loan] do |f| %>
 
-<%= item_loans_form(f) %>
+<%= render_form(f, 'loans/form') %>
 
 <p> <%= f.submit 'Update' %> </p>
 

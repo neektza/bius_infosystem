@@ -17,14 +17,13 @@ class ItemLoansController < ApplicationController
 
   def new
     @item = Item.find(params[:item_id])
-    @item_loan = ItemLoan.new
+    @loan = Loan.new
     @members = Member.members.sort! {|x, y| x.name <=> y.name}
   end
 
   def create
     @item = Item.find(params[:item_id])
-    @item_loan = ItemLoan.create(params[:item_loan])
-    @item.loans << @item_loan
+    @item.loans << Loan.new(params[:loan])
     if @item.save
       flash.now[:notice] = "Item loan was successfully created."
       redirect_to item_loans_url(@item)
@@ -35,22 +34,26 @@ class ItemLoansController < ApplicationController
 
   def edit
     @item = Item.find(params[:item_id])
-    @item_loan = ItemLoan.find(params[:id])
+    @loan = Loan.find(params[:id])
     @members = Member.members.sort! {|x, y| x.name <=> y.name}
   end
 
   def update
     @item = Item.find(params[:item_id])
-    @item_loan = ItemLoan.find(params[:id])
-
-    @item_loan = ItemLoan.update_attributes(params[:item_loan])
-    if @item_loan.save
+    @loan = Loan.find(params[:id])
+    if @loan.update_attributes(params[:loan])
       flash.now[:notice] = "Item loan was successfully created."
       redirect_to item_loans_url(@item)
     else
       render new_item_loan(@item)
     end
-
   end
 
+  def destroy
+	@loan = Loan.find(params[:id])
+	if @loan.destroy
+	  flash[:notice] = "Loan was successfully deleted."
+	  redirect_to item_loans_url(@item)
+	end
+  end
 end
