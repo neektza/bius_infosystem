@@ -1,7 +1,7 @@
 class SectionsController < ApplicationController
   before_filter :authorize
-  before_filter :check_if_section_leader, :only => [:edit, :update,]
-  before_filter :check_if_administrative_board, :only => [:new, :create, :destroy]
+  #before_filter :check_if_section_leader, :only => [:edit, :update,]
+  #before_filter :check_if_administrative_board, :only => [:new, :create, :destroy]
 
   def index
 	@sections = Section.all

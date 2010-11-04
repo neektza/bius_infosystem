@@ -1,4 +1,6 @@
 class MembershipFeesController < ApplicationController
+  before_filter :authorize
+
   def index
     @member = Member.find(params[:member_id])
     @fees = @member.membership_fees

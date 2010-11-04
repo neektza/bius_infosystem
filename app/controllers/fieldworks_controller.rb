@@ -1,7 +1,7 @@
 class FieldworksController < ApplicationController
   before_filter :authorize
-  before_filter :check_if_fieldwork_leader, :only => [:edit, :update]
-  before_filter :check_if_administrative_board, :only => [:new, :create, :destroy]
+  #before_filter :check_if_fieldwork_leader, :only => [:edit, :update]
+  #before_filter :check_if_administrative_board, :only => [:new, :create, :destroy]
 
   def index
     @fieldworks = Fieldwork.all
