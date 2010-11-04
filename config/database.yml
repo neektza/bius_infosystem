@@ -1,9 +1,15 @@
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: bius-infosystem-dev
-  pool: 5
   username: bius-infosystem
   password: Eevo5oop
-  host: localhost 
-  port: 5432
+  host: db.kset.org 
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: bius-infosystem-prod
+  username: bius-infosystem
+  password: Eevo5oop
+  host: db.kset.org 
