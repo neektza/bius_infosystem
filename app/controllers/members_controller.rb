@@ -139,17 +139,4 @@ class MembersController < ApplicationController
 	end
   end
 
-  # Send email to a member
-  def send_mail
-	@member = Member.find(params[:id])
-	if (params[:subject] and params[:body])
-	  @recipient = @member.email
-	  @sender = Member.find(session[:user_id])
-	  email = InfoMailer.create_private_message(params[:subject], params[:body], @sender , @recipient)
-	  render(:text => "<pre>" + email.encoded + "</pre>")
-	else
-	  render :action => 'mail'
-	end
-  end
-
 end

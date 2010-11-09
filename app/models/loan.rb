@@ -6,7 +6,11 @@ class Loan < ActiveRecord::Base
 
   #Loan can belong to member or section
   #belongs_to :borrower, :polymorphic => :true
-  
-#  def check_if_multiple_loan
-#  end
+
+  validate :loanable_item_or_book
+   
+  private 
+  def loanable_item_or_book
+    errors[:base] << "Item/Book already loaned" unless Loan.where(:date_to => nil, :loanable_id => self.loanable_id, :loanable_type => self.loanable_type).empty?
+  end
 end

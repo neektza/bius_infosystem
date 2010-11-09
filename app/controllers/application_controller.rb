@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   # Check leadership of a group (section, project, fieldwork)
-  def check_leadearship(group)
+  def check_leadearship
     if session[:user_id]
       unless group.find(params[:id]).leader_ids.include?(session[:user_id]) or session[:user_auth_level].to_i == Member::ROLE[:admin].to_i
         flash[:notice] = "Nemate potrebna prava za pristup akciji!"
@@ -25,21 +25,6 @@ class ApplicationController < ActionController::Base
     else
       redirect_to(:controller => 'auth' , :action => 'login' )
     end
-  end
-
-  # Wrapper for checking leadership of a section
-  def check_if_section_leader
-    check_leadearship(Section)
-  end
-
-  # Wrapper for checking leadership of a project
-  def check_if_project_leader
-    check_leadearship(Project)
-  end
-
-  # Wrapper for checking leadership of a fieldwork
-  def check_if_fieldwork_leader
-    check_leadearship(Fieldwork)
   end
 
   # Check user's authorization level

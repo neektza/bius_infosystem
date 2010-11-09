@@ -16,11 +16,11 @@ class Member < ActiveRecord::Base
   has_many :fieldworks_as_leader, :through => :fieldwork_participations, :source => 'fieldwork' , :conditions => "fieldwork_participations.role = '#{ProjectParticipation::ROLE[:leader]}'"
   has_many :fieldworks_as_participant, :through => :fieldwork_participations, :source => 'fieldwork' , :conditions => "fieldwork_participations.role = '#{ProjectParticipation::ROLE[:participant]}'"
   
-  has_many :items_procured, :class_name => "item", :foreign_key => "procurer_id" , :dependent => :nullify
+  has_many :items_procured, :class_name => "Item", :foreign_key => "procurer_id" , :dependent => :nullify
   
-  has_many :given_items, :class_name => "Loan", :foreign_key => "lender_id", :dependent => :destroy
-  has_many :taken_items, :class_name => "Loan", :foreign_key => "borrower_id", :dependent => :destroy
-  has_one :item_in_possesion, :class_name => "itemloan", :foreign_key => "borrower_id", :dependent => :destroy, :conditions => {:date_to => nil}
+#  has_many :given_items, :class_name => "Loan", :foreign_key => "lender_id", :dependent => :destroy
+#  has_many :taken_items, :class_name => "Loan", :foreign_key => "borrower_id", :dependent => :destroy
+#  has_one :item_in_possesion, :class_name => "itemloan", :foreign_key => "borrower_id", :dependent => :destroy, :conditions => {:date_to => nil}
   
   has_many :transfers , :dependent => :nullify
   

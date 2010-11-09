@@ -58,7 +58,7 @@ class LettersController < ApplicationController
   
   def new
     @letter = Letter.new
-    #@next_del_nmb = 
+    @next_dn = Letter.next_outgoing_delivery_nmb
   end
   
   def create
@@ -73,6 +73,7 @@ class LettersController < ApplicationController
 
   def edit
     @letter = Letter.find(params[:id])
+    @next_dn = Letter.next_outgoing_delivery_nmb
   end
 
   def update
@@ -97,5 +98,5 @@ class LettersController < ApplicationController
     @letter = Letter.find(params[:id])
     send_data(@letter.data, :filename => @letter.filename, :type => @letter.content_type)
   end
- 
+
 end
