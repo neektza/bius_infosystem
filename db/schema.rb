@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20101025010332) do
     t.string   "inventory_number", :null => false
     t.string   "name",             :null => false
     t.text     "state"
-    t.string   "class"
     t.integer  "procurer_id"
     t.date     "procurement_date"
     t.text     "procurement_note"

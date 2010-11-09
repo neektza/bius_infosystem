@@ -3,7 +3,7 @@ Dopis:</br>
 <%= file_field :letter, :file %>
 </p>
 
-<p> Tip: <%= f.select :in_out, {"Dolazni" => Transfer::TYPE[:incoming], "Odlazni" => Transfer::TYPE[:incoming]}, {:include_blank => true} %> <p/>
+<p> Tip: <%= f.select :in_out, {"Dolazni" => Transfer::TYPE[:incoming], "Odlazni" => Transfer::TYPE[:outgoing]}, {:include_blank => true} %> <p/>
 
 <p>
 Datum slanja/primanja:<br/>
@@ -26,6 +26,6 @@ Predmet:<br/>
 </p>
 
 <p>
-Urudzbeni broj:<br/>
-<%= f.text_field :delivery_number %> o-del#:
+Urudzbeni broj (sljedeci izlazni je <%= @next_dn %>)<br/>
+<%= f.text_field :delivery_number %> 
 </p>

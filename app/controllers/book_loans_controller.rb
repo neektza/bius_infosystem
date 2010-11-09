@@ -28,7 +28,7 @@ class BookLoansController < ApplicationController
       flash.now[:notice] = "Book loan was successfully created."
       redirect_to book_loans_url(@book)
     else
-      render new_book_loan(@book)
+      render new_book_loan_url(@book)
     end
   end
 

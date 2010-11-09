@@ -4,10 +4,10 @@ class FieldworkParticipation < ActiveRecord::Base
   belongs_to :member
   belongs_to :fieldwork
 
-  validate :id_pair_must_unique
+  validate :id_pair_unique
 
   private
-  def id_pair_must_unique
-    errors.add_to_base("#{self.member.username} is already a participant of #{self.fieldwork.title}") unless FieldworkParticipation.all(:conditions => {:member_id => self.member_id, :fieldwork_id => self.fieldwork_id}).blank?
+  def id_pair_unique
+    errors[:base] << "#{self.member.username} is already a participant of #{self.fieldwork.title}" unless FieldworkParticipation.all(:conditions => {:member_id => self.member_id, :fieldwork_id => self.fieldwork_id}).blank?
   end
 end

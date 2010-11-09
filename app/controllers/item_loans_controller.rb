@@ -28,7 +28,7 @@ class ItemLoansController < ApplicationController
       flash.now[:notice] = "Item loan was successfully created."
       redirect_to item_loans_url(@item)
     else
-      render new_item_loan(@item)
+      render new_item_loan_url(@item)
     end
   end
 

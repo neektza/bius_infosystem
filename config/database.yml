@@ -4,6 +4,6 @@ development:
   database: bius-infosystem-dev
   pool: 5
   username: bius-infosystem
-  password: Eevo5oop
+  password: baraba
   host: localhost 
   port: 5432
