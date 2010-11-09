@@ -2,6 +2,8 @@
 <%= render :partial => "books/show_menu" %>
 <% end %>
 
+<%= error_messages_for :loan %>
+
 <%= form_for [@book, @loan] do |f| %>
 
 <%= render_form(f, 'loans/form') %>

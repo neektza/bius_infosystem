@@ -6,4 +6,3 @@ tmp/**/*
 *.swp
 passenger*
 config/database.yml
-
