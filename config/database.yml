@@ -3,19 +3,13 @@ development:
   encoding: unicode
   database: bius-infosystem-dev
   username: bius-infosystem
-<<<<<<< .merge_file_Es1Eun
   password: Eevo5oop
   host: db.kset.org 
 
 production:
   adapter: postgresql
-  encoding: utf8
+  encoding: unicode
   database: bius-infosystem-prod
   username: bius-infosystem
   password: Eevo5oop
   host: db.kset.org 
-=======
-  password: baraba
-  host: localhost 
-  port: 5432
->>>>>>> .merge_file_dbGGvk
