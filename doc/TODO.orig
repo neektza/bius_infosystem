@@ -1,0 +1,36 @@
+<<<<<<< .merge_file_gAAvuq
+TODO display helpers + views + messages (hr)
+TODO delete self
+---
+TODO ur_br generacija
+=======
+FIX display helpers + views + messages (hr)
+FIX delete self
+
+>>>>>>> .merge_file_ciywTp
+TODO inventar - validation mult loan
+---
+TODO auth auth auth
+<<<<<<< .merge_file_gAAvuq
+TODO https (ssl)
+=======
+TODO helper form_for fix
+
+---
+>>>>>>> .merge_file_ciywTp
+TODO mail integracija
+---
+TODO pagination
+TODO https (ssl)
+
+* knjiznica
+Autor
+Vlasništvo
+Kod koga se nalazi
+Rok posudbe
+Kada je posudio (bius ili neka sekcija) automatski 2 tjedna, ali da se moze mijenjat
+
+* oprema
+Vrsta opreme
+Vlasnistvo (neka sekcija ili BIUS)
+kod koga se nalazi (BIUS ili necije ime)

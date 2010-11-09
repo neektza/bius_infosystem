@@ -1,0 +1,38 @@
+<p>
+Tip: 
+<%= f.select :in_out, {"Dolazni" => Transfer::TYPE[:incoming], "Odlazni" => Transfer::TYPE[:incoming]}, {:include_blank => true} %>
+</p>
+
+<<<<<<< .merge_file_Mgz69l
+<p>
+Dopis:<br/>
+<%= file_field :letter, :file %>
+</p>
+=======
+<p> Tip: <%= f.select :in_out, {"Dolazni" => Transfer::TYPE[:incoming], "Odlazni" => Transfer::TYPE[:outgoing]}, {:include_blank => true} %> <p/>
+>>>>>>> .merge_file_0S53ul
+
+<p>
+Datum slanja/primanja:<br/>
+<%= f.date_select :date , :order => [:day, :month, :year], :start_year => 2000  %>
+</p>
+
+<p>
+Posiljatelj:<br/>
+<%= f.text_field :from %>
+</p>
+
+<p>
+Primatelj:<br/>
+<%= f.text_field :to %>
+</p>
+
+<p>
+Predmet:<br/>
+<%= f.text_field :subject %>
+</p>
+
+<p>
+Urudzbeni broj (sljedeci izlazni je <%= @next_dn %>)<br/>
+<%= f.text_field :delivery_number %> 
+</p>
