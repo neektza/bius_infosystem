@@ -17,7 +17,7 @@ class SectionsController < ApplicationController
   def search
     @sections = []
     if params[:keyword]
-      @sections = Section.all(:conditions => ["title LIKE ?", "%#{params[:keyword]}%"])
+      @sections = Section.where("title ILIKE ?", params[:keyword]])
       if @sections.empty?
      	flash[:notice] = "No such sections in database."
       end

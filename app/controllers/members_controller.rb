@@ -38,7 +38,8 @@ class MembersController < ApplicationController
   def search
 	@members = []
 	if params[:keyword]
-	  @members = Member.where(["first_name ILIKE %?% OR last_name ILIKE %?% OR username ILIKE %?%", params[:keyword], params[:keyword], params[:keyword]])
+      params[:keyword] = '%' + params[:keyword] + '%'
+	  @members = Member.where(["first_name ILIKE ? OR last_name ILIKE ? OR username ILIKE ?", params[:keyword], params[:keyword], params[:keyword]])
 	  if @members.empty?
 		flash[:notice] = "messages.members.search.empty"
 	  end

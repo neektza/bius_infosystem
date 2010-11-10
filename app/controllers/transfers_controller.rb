@@ -16,7 +16,8 @@ class TransfersController < ApplicationController
   def search
 	@transfers = []
 	if params[:keyword]
-	  @transfers = Transfer.all(:conditions => ["purpose LIKE ?" , "%#{params[:keyword]}%"])
+      params[:keyword] = '%' + params[:keyword] + '%'
+	  @transfers = Transfer.where("purpose ILIKE ?" , params[:keyword]])
 	  if @transfers.empty?
 		flash[:notice] = "messages.transfers.search.empty"
 	  end

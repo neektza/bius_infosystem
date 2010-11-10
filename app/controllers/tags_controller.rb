@@ -15,7 +15,8 @@ class TagsController < ApplicationController
   def search
   	@tags = []
   	if params[:keyword]
-  	  @tags = Tag.find.all(:conditions => ["title LIKE ?" , "%#{params[:keyword]}%"])
+      params[:keyword] = '%' + params[:keyword] + '%'
+  	  @tags = Tag.find.where("title ILIKE ?" , params[:keyword]])
   	  if @tags.empty?
   		flash[:notice] = "No such tags in database."
   	  end

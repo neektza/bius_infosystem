@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
   def search
 	@projects = []
 	if params[:keyword]
-	  @projects = Project.all(:conditions => ["title LIKE ?" , "%#{params[:keyword]}%"])
+	  @projects = Project.where("title ILIKE ?" , params[:keyword]])
 	  if @projects.empty?
 		flash[:notice] = "No such projects in database."
 	  end

@@ -17,7 +17,8 @@ class FieldworksController < ApplicationController
   def search
     @fieldworks = []
     if params[:keyword]
-      @fieldworks = Fieldwork.all(:conditions => ["location LIKE ?", "%#{params[:keyword]}%"])
+      params[:keyword] = '%' + params[:keyword] + '%'
+      @fieldworks = Fieldwork.where(:conditions => ["location ILIKE ?", params[:keyword]])
       if @fieldworks.empty?
      	flash[:notice] = "No such fieldworks in database."
       end

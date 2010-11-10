@@ -16,7 +16,8 @@ class LettersController < ApplicationController
   def search
 	@letters = []
 	if params[:keyword]
-	  @letters = Letter.all(:conditions => ["subject LIKE ?" , "%#{params[:keyword]}%"])
+      params[:keyword] = '%' + params[:keyword] + '%'
+	  @letters = Letter.where(["subject ILIKE ?" , params[:keyword]])
 	  if @letters.empty?
 		flash[:notice] = "messages.letters.search.empty"
 	  end

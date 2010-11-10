@@ -28,7 +28,8 @@ class NotificationsController < ApplicationController
   def search
 	@notifications = []
 	if params[:keyword]
-	  @notifications = Notification.all( :conditions => ["title LIKE ?" , "%#{params[:keyword]}%"])
+      params[:keyword] = '%' + params[:keyword] + '%'
+	  @notifications = Notification.where(["title ILIKE ?" , params[:keyword]])
 	  if @notifications.empty?
 		flash[:notice] = "No such notifications in database."
 	  end
