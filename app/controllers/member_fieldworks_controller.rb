@@ -1,4 +1,5 @@
 class MemberFieldworksController < ApplicationController
+  before_filter :authorize
 
   # List fieldworks of a member
   def index

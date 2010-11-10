@@ -1,4 +1,5 @@
 class MemberProjectsController < ApplicationController
+  before_filter :authorize
 
   # List projects of a member
   def index

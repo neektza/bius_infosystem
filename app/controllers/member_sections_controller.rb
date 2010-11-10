@@ -1,4 +1,5 @@
 class MemberSectionsController < ApplicationController
+  before_filter :authorize
 
   # List sections of a member
   def index
