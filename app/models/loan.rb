@@ -7,7 +7,7 @@ class Loan < ActiveRecord::Base
   #Loan can belong to member or section
   #belongs_to :borrower, :polymorphic => :true
 
-  validate :loanable_item_or_book
+#  validate :loanable_item_or_book
    
   private 
   def loanable_item_or_book
