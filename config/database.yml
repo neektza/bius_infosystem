@@ -13,3 +13,5 @@ production:
   username: bius-infosystem
   password: Eevo5oop
   host: db.kset.org 
+
+test:
