@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+neektza:
+ username: neektza
+ first_name: Nikica
+ last_name: Jokic
+ email: neektza@gmail.com
+ hash_pass: blabla123
+ salt: bg
+ auth_level: 1
+ active_until: Time.yesterday
+
+lule:
+ username: lule
+ first_name: Vedran
+ last_name: Lucic
+ email: vedran.lucic@gmail.com
+ hash_pass: kitkit
+ salt: tits
+ auth_level: 1
+ active_until: Time.yesterday

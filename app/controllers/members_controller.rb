@@ -8,7 +8,7 @@ class MembersController < ApplicationController
   # Find only active members 
   #TODO: put order by in sql and BOOL to CHAR(1)
   def index
-	@members = Member.all(:conditions => ["auth_level >= ? AND is_active = TRUE", Member::ROLE[:member]])
+	@members = Member.all(:conditions => ["auth_level >= ? AND is_active = ?", Member::ROLE[:member], true])
     @members.sort! { |a,b| a.membership_card_nmb.to_i <=> b.membership_card_nmb.to_i }
 	if @members.empty?
 	  flash[:notice] = "messages.members.index.empty"

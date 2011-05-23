@@ -1,10 +1,14 @@
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: bius-infosystem-dev
-  username: bius-infosystem
-  password: Eevo5oop
-  host: db.kset.org 
+  adapter: sqlite3
+  database: db/bius_development.sqlite3
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: sqlite3
+  database: db/bius_test.sqlite3
+  pool: 5
+  timeout: 5000
 
 production:
   adapter: postgresql
@@ -13,5 +17,3 @@ production:
   username: bius-infosystem
   password: Eevo5oop
   host: db.kset.org 
-
-test:
