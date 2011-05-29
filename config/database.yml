@@ -15,5 +15,5 @@ production:
   encoding: unicode
   database: bius-infosystem-prod
   username: bius-infosystem
-  password: Eevo5oop
+  password: w00t
   host: db.kset.org 
