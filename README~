@@ -7,4 +7,5 @@ Testovi poslovnog sloja, functional testovi koji testiraju controller dio MVC ap
 Svi testovi pokrecu se naredbom "rake tests" koja se pokrece iz mape "infosystem/".
 
 Unit testovi testiraju validacije unutar modela i ostale metode iz sloja modela.
-Func testovi testiraju ponasanje poslovnie logike, tj. metode kontrolerskog dijela.
+Func testovi testiraju ponasanje poslovnie logike, tj. metoda kontrolera.
+
