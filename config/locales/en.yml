@@ -1,16 +1,5 @@
 # Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  auth_level:
-    member: "Member"
-    leader: "Leader"
-    supervisory_board: "Supervisory board"
-    administrative_board: "Administrative board"
-    admin: "Administrator"
-
-  messages:
-    logout: "Odprijavili ste se."
-
-  errors:
-    login: "Nepostojeća username/password kombinacija."
+  hello: "Hello world"

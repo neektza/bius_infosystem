@@ -1,19 +1,17 @@
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql2
+  host: localhost
+  database: bius_infosystem_development
+  username: root
 
 test:
   adapter: sqlite3
   database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
 
 production:
-  adapter: postgresql
-  encoding: unicode
+  adapter: pg
+  encoding: utf8
+  host: db.kset.org 
   database: bius-infosystem
   username: bius-infosystem
   password: w00t
-  host: db.kset.org 

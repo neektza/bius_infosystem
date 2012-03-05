@@ -1,2 +1,0 @@
-class ProbaController < ApplicationController
-end

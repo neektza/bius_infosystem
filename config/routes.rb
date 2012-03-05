@@ -53,12 +53,12 @@ Infosystem::Application.routes.draw do
       end
     end
     resource :report, :controller => "project_reports", :except => [:index, :edit, :update] do
-       member do
+      member do
         get :download
       end
     end
   end
-  
+
   resources :fieldworks do
     collection do
       get :search
@@ -71,7 +71,7 @@ Infosystem::Application.routes.draw do
       end
     end
     resource :report, :controller => "fieldwork_reports", :except => [:index, :edit, :update] do
-       member do
+      member do
         get :download
       end
     end
@@ -88,7 +88,7 @@ Infosystem::Application.routes.draw do
       post :search
     end
   end
-  
+
   resources :transfers do
     collection do 
       get :secret
@@ -139,8 +139,5 @@ Infosystem::Application.routes.draw do
     end
   end
 
-  match ':controller/:action/:id'
-  match ':controller/:action/'
-  
   root :to => 'user#login'
 end
