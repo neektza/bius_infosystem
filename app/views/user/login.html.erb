@@ -1,21 +1,19 @@
 <% content_for :head do %> 
-<%= render :partial => "welcome_menu" %>
+  <%= render :partial => "welcome_menu" %>
 <% end %>
 
 <% form_tag do %>
+  <p>
+  Username:<br/>
+  <%= text_field_tag :username %>
+  </p>
 
-<p>
-Username:<br/>
-<%= text_field_tag :username %>
-</p>
+  <p>
+  Password:<br/>
+  <%= password_field_tag :password %>
+  </p>
 
-<p>
-Password:<br/>
-<%= password_field_tag :password %>
-</p>
-
-<p>
-<%= submit_tag "Login" %>
-</p>
-
+  <p>
+  <%= submit_tag "Login" %>
+  </p>
 <% end %>

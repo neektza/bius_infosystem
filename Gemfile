@@ -7,6 +7,7 @@ source 'http://rubygems.org'
 gem 'rails', '~>3.1.4'
 gem 'capistrano'
 gem 'dynamic_form'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'thin'
