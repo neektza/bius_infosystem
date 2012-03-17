@@ -1,6 +1,10 @@
 load 'deploy/assets'
 require 'bundler/capistrano'
 
+set :default_environment, {
+  'PATH' => "/home/bius/.rbenv/shims:/home/bius/.rbenv/bin:$PATH"
+}
+
 set :application, "infosystem.bius.hr"
 set :repository,  "git@github.com:neektza/bius_infosystem.git"
 set :deploy_to, "/home/bius/infosystem.bius.hr" 
