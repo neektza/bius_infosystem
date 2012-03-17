@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Infosystem</title>
-  <%= csrf_meta_tag %>
-</head>
+  <head>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+    <title>Infosystem</title>
+  </head>
 
-<body>
-  <div id="top">	
-    <div id="userinfo">
-      <%= render(:partial => "layouts/userinfo") %>
-	</div>
+  <body>
+    <div id="top">	
+      <div id="userinfo">
+        <%= render(:partial => "layouts/userinfo") %>
+      </div>
 
-	<div id="navigation">
-	  <%= render(:partial => "layouts/navigation") %>
-	</div>
-  </div>
+      <div id="navigation">
+        <%= render(:partial => "layouts/navigation") %>
+      </div>
+    </div>
 
-  <div id="main">
-    <div id="head">
-      <p>
+    <div id="main">
+      <div id="head">
+        <p>
         <b><%= params[:controller] + "#" + params[:action] %></b>
         <% if flash[:notice] -%>
           <%= ": " + flash[:notice] %>
         <% end -%>
-      </p>
+        </p>
 
-      <%= yield :head %>
-      <hr/>
+        <%= yield :head %>
+        <hr/>
+      </div>
+      <div id="body"/>
+        <%= yield %>
+      </div>
     </div>
-    <div id="body"/>
-      <%= yield %>
-    </div>
-  </div>
-</body>
+  </body>
 </html>

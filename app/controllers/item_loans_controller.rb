@@ -1,6 +1,6 @@
 class ItemLoansController < ApplicationController
-  before_filter :authorize
-  
+  load_and_authorize_resource
+
   def index
     @item = Item.find(params[:item_id])
     if @item.loans.empty?
@@ -50,10 +50,11 @@ class ItemLoansController < ApplicationController
   end
 
   def destroy
-	@loan = Loan.find(params[:id])
-	if @loan.destroy
-	  flash[:notice] = "Loan was successfully deleted."
-	  redirect_to item_loans_url(@item)
-	end
+    @loan = Loan.find(params[:id])
+    if @loan.destroy
+      flash[:notice] = "Loan was successfully deleted."
+      redirect_to item_loans_url(@item)
+    end
   end
+
 end

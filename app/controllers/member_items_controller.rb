@@ -1,5 +1,4 @@
 class MemberItemsController < ApplicationController
-  before_filter :authorize
 
   # List items of a member
   def index

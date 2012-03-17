@@ -1,6 +1,4 @@
 class MembershipFeesController < ApplicationController
-  before_filter :authorize
-
   def index
     @member = Member.find(params[:member_id])
     @fees = @member.membership_fees
@@ -24,9 +22,9 @@ class MembershipFeesController < ApplicationController
 
   def destroy
     @fee = MembershipFee.find(params[:id])
-	if @fee.destroy
-	  flash[:notice] = "Fee was successfully deleted"
+    if @fee.destroy
+      flash[:notice] = "Fee was successfully deleted"
       redirect_to member_membership_fees_url(@member)
-	end
+    end
   end
 end

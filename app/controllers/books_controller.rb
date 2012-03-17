@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_filter :authorize
+  load_and_authorize_resource
 
   def index
     @books = Book.all
@@ -53,6 +53,5 @@ class BooksController < ApplicationController
       redirect_to books_url
     end
   end
-
 
 end

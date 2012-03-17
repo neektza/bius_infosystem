@@ -1,5 +1,5 @@
 class ProjectParticipationsController < ApplicationController
-  before_filter :authorize
+  load_and_authorize_resource
 
   def index
     #for show_menu
@@ -54,4 +54,5 @@ class ProjectParticipationsController < ApplicationController
       redirect_to project_participations_url(params[:project_id])
     end
   end
+
 end

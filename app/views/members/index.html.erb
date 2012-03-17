@@ -1,5 +1,5 @@
 <% content_for :head do %> 
-<%= render :partial => "index_menu" %> : <%= render :partial => "sub_menu" %>
+<%= render :partial => "index_menu" %>
 <% end %>
 
 <% unless @members.empty? %>
@@ -8,19 +8,17 @@
 <table border='1'>
 <tr>
 <th>#</th>
-<th>Username</th>
+<th>Email</th>
 <th>Ime</th>
 <th>Prezime</th>
-<th>E-mail</th>
 </tr>
 
 <% for m in @members %>
 <tr>
 <td><%=h m.membership_card_nmb %></td>
-<td><%= link_to m.username, member_url(m) %></td>
+<td><%= link_to m.email, member_url(m) %></td>
 <td><%=h m.first_name %></td>
 <td><%=h m.last_name %></td>
-<td><%=h m.email %></td>
 </tr>
 <% end %>
 </table>

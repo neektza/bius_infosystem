@@ -1,16 +1,10 @@
 class Report < ActiveRecord::Base
+  before_post_process :image?
+
   belongs_to :reportable, :polymorphic => :true
+  has_attached_file :document
   
-  def file=(stream)
-    self.filename = base_part_of(stream.original_filename)
-    self.content_type = stream.content_type
-    self.size = stream.size
-    self.data = stream.read
-  end
-
-  private
-
-  def base_part_of(file_name)
-      File.basename(file_name).gsub(/[^\w._-]/, '' )
+  def image?
+    !(data_content_type =~ /^image.*/).nil?
   end
 end

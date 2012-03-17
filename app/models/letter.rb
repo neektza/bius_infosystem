@@ -1,6 +1,6 @@
 class Letter < ActiveRecord::Base
-  # TYPE to avoid STI
-  TYPE = {:incoming => 'i', :outgoing => 'o'}
+  before_post_process :image?
+  has_attached_file :document
 
   validates_presence_of :in_out
   validates_presence_of :filename
@@ -8,12 +8,8 @@ class Letter < ActiveRecord::Base
   validates_uniqueness_of :delivery_number
   validates_format_of :delivery_number, :with => /\A\d{2}-\d{3}\Z/, :message => "Format je xx-yyy (god-rbr)."
   
-  def file=(stream)
-    self.filename = base_part_of(stream.original_filename)
-    self.content_type = stream.content_type
-    self.size = stream.size
-    self.data = stream.read
-  end
+  # TYPE to avoid STI
+  TYPE = {:incoming => 'i', :outgoing => 'o'}
 
   def self.next_outgoing_delivery_nmb
     last_dn = Letter.where(:in_out => TYPE[:outgoing]).maximum(:delivery_number)
@@ -30,9 +26,8 @@ class Letter < ActiveRecord::Base
     return next_dn
   end
   
-  private
-  def base_part_of(file_name)
-      File.basename(file_name).gsub(/[^\w._-]/, '' )
+  def image?
+    !(data_content_type =~ /^image.*/).nil?
   end
 end
 

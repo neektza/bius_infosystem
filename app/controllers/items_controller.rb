@@ -1,7 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :authorize
-  #before_filter :check_if_administrative_board, :only => [:add, :edit, :listreqs, :allow, :deny]
-  #before_filter :check_if_item_in_possession, :only => [:dealloc]
+  load_and_authorize_resource
 
   def index
     @items = Item.all

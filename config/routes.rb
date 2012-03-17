@@ -1,15 +1,12 @@
 Infosystem::Application.routes.draw do
 
+  devise_for :members
+
   resources :members do
-    member do
-      get :accept
-      get :reject
-    end
     collection do
       get :search
-      get :all
-      get :registrations
       post :search
+      get :all
     end
     resources :subscriptions, :controller => :subscriptions, :only => [:index, :create, :destroy] do
       collection do
@@ -138,6 +135,7 @@ Infosystem::Application.routes.draw do
       get 'logout'
     end
   end
+  
+  root :to => "members#index"
 
-  root :to => 'user#login'
 end

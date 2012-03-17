@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305223029) do
+ActiveRecord::Schema.define(:version => 20120317190857) do
 
   create_table "books", :force => true do |t|
     t.string   "author",      :null => false
@@ -92,11 +92,9 @@ ActiveRecord::Schema.define(:version => 20120305223029) do
   end
 
   create_table "members", :force => true do |t|
-    t.string   "username",                              :null => false
-    t.string   "first_name",                            :null => false
-    t.string   "last_name",                             :null => false
-    t.string   "email",                                 :null => false
-    t.string   "phone",                   :limit => 15
+    t.string   "first_name",                            :default => "",      :null => false
+    t.string   "last_name",                                                  :null => false
+    t.string   "phone",                   :limit => 15, :default => "",      :null => false
     t.date     "birthdate"
     t.string   "department"
     t.string   "index_nmb",               :limit => 12
@@ -105,9 +103,6 @@ ActiveRecord::Schema.define(:version => 20120305223029) do
     t.date     "membership_renewal_date"
     t.string   "birthplace"
     t.string   "residence"
-    t.string   "hash_pass",                             :null => false
-    t.string   "salt",                                  :null => false
-    t.string   "auth_level",              :limit => 1,  :null => false
     t.boolean  "graduated"
     t.boolean  "is_active"
     t.datetime "created_at"
@@ -115,7 +110,21 @@ ActiveRecord::Schema.define(:version => 20120305223029) do
     t.string   "membership_card_nmb"
     t.string   "sex",                     :limit => 1
     t.date     "active_until"
+    t.string   "email",                                 :default => "",      :null => false
+    t.string   "encrypted_password",                    :default => "",      :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "role",                                  :default => "grunt", :null => false
   end
+
+  add_index "members", ["email"], :name => "index_members_on_email", :unique => true
+  add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
 
   create_table "members_tags", :id => false, :force => true do |t|
     t.integer  "member_id"

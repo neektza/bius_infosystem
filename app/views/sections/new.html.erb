@@ -4,9 +4,9 @@
 
 <%= error_messages_for :section %>
 
-<% form_for @section do |f| %>
+<%= form_for @section do |f| %>
 
-<%= render_form(f, 'form') %>
+<%= render_form('form', f) %>
 
 <p><%= f.submit "Create" %></p>
 

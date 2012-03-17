@@ -1,5 +1,4 @@
 class SectionReportsController < ApplicationController
-  before_filter :authorize
 
   def index
     @section = Section.find(params[:section_id])

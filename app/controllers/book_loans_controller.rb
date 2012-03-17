@@ -1,6 +1,6 @@
 class BookLoansController < ApplicationController
-  before_filter :authorize
-  
+  load_and_authorize_resource
+
   def index
     @book = Book.find(params[:book_id])
     if @book.loans.empty?
@@ -50,10 +50,11 @@ class BookLoansController < ApplicationController
   end
 
   def destroy
-	@loan = Loan.find(params[:id])
-	if @loan.destroy
-	  flash[:notice] = "Loan was successfully deleted."
-	  redirect_to book_loans_url(@book)
-	end
+    @loan = Loan.find(params[:id])
+    if @loan.destroy
+      flash[:notice] = "Loan was successfully deleted."
+      redirect_to book_loans_url(@book)
+    end
   end
+
 end

@@ -1,12 +1,12 @@
 class TransfersController < ApplicationController
-  before_filter :authorize
+  load_and_authorize_resource
 
   def index
     @transfers = Transfer.all
     if @transfers.empty?
-        flash.now[:notice] = "No transfers in database."
+      flash.now[:notice] = "No transfers in database."
     end
-    
+
     respond_to do |format|
       format.html
       format.xml { render :xml => @transfers.to_xml }
@@ -14,27 +14,27 @@ class TransfersController < ApplicationController
   end
 
   def search
-	@transfers = []
-	if params[:keyword]
+    @transfers = []
+    if params[:keyword]
       params[:keyword] = '%' + params[:keyword] + '%'
-	  @transfers = Transfer.where(["purpose ILIKE ?" , params[:keyword]])
-	  if @transfers.empty?
-		flash[:notice] = "messages.transfers.search.empty"
-	  end
-	  respond_to do |format|
-		format.html
-		format.xml { render :xml => @transfers.to_xml }
-		format.json { render :json => @transfers.to_json }
-	  end
-	end
+      @transfers = Transfer.where(["purpose ILIKE ?" , params[:keyword]])
+      if @transfers.empty?
+        flash[:notice] = "messages.transfers.search.empty"
+      end
+      respond_to do |format|
+        format.html
+        format.xml { render :xml => @transfers.to_xml }
+        format.json { render :json => @transfers.to_json }
+      end
+    end
   end
 
   def secret
     @transfers = Transfer.all(:conditions => {:is_secret => true})
     if @transfers.empty?
-        flash.now[:notice] = "No such transfers in database."
+      flash.now[:notice] = "No such transfers in database."
     end
-   
+
     respond_to do |format|
       format.html { render "index" }
       format.xml { render :xml => @transfers.to_xml }
@@ -44,7 +44,7 @@ class TransfersController < ApplicationController
   def incoming
     @transfers = Transfer.all(:conditions => {:in_out => Transfer::TYPE[:incoming]})
     if @transfers.empty?
-        flash.now[:notice] = "No such transfers in database."
+      flash.now[:notice] = "No such transfers in database."
     end
 
     respond_to do |format|
@@ -56,7 +56,7 @@ class TransfersController < ApplicationController
   def outgoing
     @transfers = Transfer.all(:conditions => {:in_out => Transfer::TYPE[:outgoing]})
     if @transfers.empty?
-        flash.now[:notice] = "No such transfers in database."
+      flash.now[:notice] = "No such transfers in database."
     end
 
     respond_to do |format|
@@ -72,7 +72,7 @@ class TransfersController < ApplicationController
   def new
     @transfer = Transfer.new
   end
-  
+
   def create
     @transfer = Transfer.new(params[:transfer])
     if @transfer.save

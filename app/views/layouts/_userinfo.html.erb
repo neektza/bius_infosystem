@@ -1,8 +1,8 @@
 :infosystem:
-<% if session[:user_id] %> |
-<%= session[:user_username] %> |
-<%= link_to ':logout:', logout_user_url %> |
-<%= link_to ':profile:', user_url %> |
-<%= link_to ':subscriptions:', member_subscriptions_url(session[:user_id]) %>
+<% if member_signed_in? %> |
+<%= current_member.email %> |
+<%= link_to ':logout:', destroy_member_session_path, :method => :delete %>
+<%#= link_to ':profile:', user_url %> |
+<%#= link_to ':subscriptions:', member_subscriptions_url(session[:user_id]) %>
 <% end %>
 

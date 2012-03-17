@@ -1,38 +1,38 @@
 class LettersController < ApplicationController
-  before_filter :authorize
+  load_and_authorize_resource
 
   def index
     @letters = Letter.all
     if @letters.empty?
-        flash.now[:notice] = "No letters in database."
+      flash.now[:notice] = "No letters in database."
     end
-    
+
     respond_to do |format|
       format.html
       format.xml { render :xml => @letters.to_xml }
     end
   end
-  
+
   def search
-	@letters = []
-	if params[:keyword]
+    @letters = []
+    if params[:keyword]
       params[:keyword] = '%' + params[:keyword] + '%'
-	  @letters = Letter.where(["subject ILIKE ?" , params[:keyword]])
-	  if @letters.empty?
-		flash[:notice] = "messages.letters.search.empty"
-	  end
-	  respond_to do |format|
-		format.html
-		format.xml { render :xml => @letters.to_xml }
-		format.json { render :json => @letters.to_json }
-	  end
-	end
+      @letters = Letter.where(["subject ILIKE ?" , params[:keyword]])
+      if @letters.empty?
+        flash[:notice] = "messages.letters.search.empty"
+      end
+      respond_to do |format|
+        format.html
+        format.xml { render :xml => @letters.to_xml }
+        format.json { render :json => @letters.to_json }
+      end
+    end
   end
 
   def incoming
     @letters = Letter.all(:conditions => {:in_out => Letter::TYPE[:incoming]})
     if @letters.empty?
-        flash.now[:notice] = "No such letters in database."
+      flash.now[:notice] = "No such letters in database."
     end
 
     respond_to do |format|
@@ -44,7 +44,7 @@ class LettersController < ApplicationController
   def outgoing
     @letters = Letter.all(:conditions => {:in_out => Letter::TYPE[:outgoing]})
     if @letters.empty?
-        flash.now[:notice] = "No such letters in database."
+      flash.now[:notice] = "No such letters in database."
     end
 
     respond_to do |format|
@@ -56,12 +56,12 @@ class LettersController < ApplicationController
   def show
     @letter = Letter.find(params[:id])
   end
-  
+
   def new
     @letter = Letter.new
     @next_dn = Letter.next_outgoing_delivery_nmb
   end
-  
+
   def create
     @letter = Letter.new(params[:letter])
     if @letter.save
@@ -94,7 +94,7 @@ class LettersController < ApplicationController
       redirect_to letters_url
     end
   end
-  
+
   def download
     @letter = Letter.find(params[:id])
     send_data(@letter.data, :filename => @letter.filename, :type => @letter.content_type)
