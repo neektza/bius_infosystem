@@ -1,15 +1,13 @@
 <% content_for :head do %> 
-<%= render :partial => "projects/show_menu" %>
+  <%= render :partial => "projects/show_menu" %>
 <% end %>
 
 <% unless @project.report.nil? %>
-
-<p>Izvjesce:</p>
-
-filename: <%= @project.report.filename %> | 
-<%= link_to '[v]', download_project_report_url(@project) %> | 
-<%= link_to '[x]', project_report_url(@project), :method => :delete, :confirm => "Are you sure?" %>
-<br/>
+  <%= link_to "#{@project.report.document_file_name}", @project.report.document.url %> | 
+  <%= link_to '[x]', project_report_url(@project), :method => :delete, :confirm => "Are you sure?" %>
+  <br/>
 <% end %>
 
-<p><%= link_to 'New', new_project_report_url(@project) %></p>
+<% if @project.report.nil? %>
+  <p><%= link_to 'New', new_project_report_url(@project) %></p>
+<% end %>

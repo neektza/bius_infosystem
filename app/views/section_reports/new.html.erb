@@ -1,21 +1,23 @@
 <% content_for :head do %> 
-<%= render :partial => "sections/show_menu" %>
+  <%= render :partial => "sections/show_menu" %>
 <% end %>
 
-<p><%= error_messages_for :reports %></p>
+<div>
+  <%= error_messages_for :reports %>
+</div>
 
-<% form_tag section_reports_url(@section), { :multipart => true } do %>
+<%= form_tag section_reports_url(@section), { :multipart => true } do %>
+  <div>
+    Izvjestaj za spremanje:</br>
+    <%= file_field_tag :document %>
+  </div>
 
-<p>
-Izvjestaj za spremanje:</br>
-<%= file_field_tag :report %>
-</p>
+  <div>
+    Godina izvjesca:</br>
+    <%= select_year Date.today %> 
+  </div>
 
-<p>
-Godina izvjesca:</br>
-<%= select_year Date.today %> 
-</p>
-
-<p><%= submit_tag 'Spremi izvjesce' %></p>
-
+  <div>
+    <%= submit_tag 'Spremi izvjesce' %>
+  </div>
 <% end %>

@@ -10,4 +10,4 @@
 
 <p>Urudzbeni broj: <%= @letter.delivery_number %></p>
 
-<p>Dopis: <%= link_to @letter.filename, download_letter_url(@letter)%> 
+<p>Dopis: <%= link_to @letter.document_file_name, @letter.document.url %> 

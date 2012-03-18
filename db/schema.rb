@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120317190857) do
+ActiveRecord::Schema.define(:version => 20120318144959) do
 
   create_table "books", :force => true do |t|
     t.string   "author",      :null => false
@@ -69,15 +69,15 @@ ActiveRecord::Schema.define(:version => 20120317190857) do
     t.string   "to"
     t.date     "date"
     t.string   "subject"
-    t.string   "filename"
-    t.string   "content_type"
     t.string   "description"
-    t.binary   "data"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "in_out",          :limit => 1
+    t.string   "in_out",                :limit => 1
     t.string   "delivery_number"
-    t.string   "size"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "loans", :force => true do |t|
@@ -176,14 +176,13 @@ ActiveRecord::Schema.define(:version => 20120317190857) do
   create_table "reports", :force => true do |t|
     t.integer  "reportable_id"
     t.string   "reportable_type"
-    t.string   "year",            :limit => 4, :null => false
-    t.binary   "data",                         :null => false
-    t.string   "content_type",                 :null => false
-    t.string   "filename",                     :null => false
-    t.string   "size",                         :null => false
-    t.datetime "stamp",                        :null => false
+    t.string   "year",                  :limit => 4, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   create_table "section_memberships", :force => true do |t|

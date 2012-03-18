@@ -18,9 +18,9 @@ set :deploy_via, :remote_cache
 
 ssh_options[:forward_agent] = true
 
-role :web, "hosting.kset.org"
-role :app, "hosting.kset.org"
-#role :db,  "db.kset.org", :primary => true # This is where Rails migrations will run
+server 'hosting.kset.org', :web, :app
+# role :db,  "hosting.kset.org", :primary => true
+# role :db,  "db.kset.org", :no_release => true
 
 after 'deploy:update_code', 'deploy:symlink_db'
 

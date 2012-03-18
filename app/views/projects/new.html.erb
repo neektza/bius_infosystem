@@ -1,13 +1,15 @@
 <% content_for :head do %> 
-<%= render :partial => "index_menu" %>
+  <%= render :partial => "index_menu" %>
 <% end %>
 
 <%= error_messages_for :project %>
 
-<% form_for @project do |f| %>
+<%= form_for @project do |f| %>
 
-<%= render_form('form', f) %>
+  <%= render_form('form', f) %>
 
-<p><%= f.submit "Create" %></p>
+  <div>
+    <%= f.submit "Create" %>
+  </div>
 
 <% end %>

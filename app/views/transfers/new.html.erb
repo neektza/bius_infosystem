@@ -4,9 +4,9 @@
 
 <%= error_messages_for :transfer %>
 
-<% form_for @transfer do |f| %>
+<%= form_for @transfer do |f| %>
 
-<%= render_form(f, 'form') %>
+<%= render_form('form', f) %>
 
 <p><%= f.submit 'Create' %></p>
 

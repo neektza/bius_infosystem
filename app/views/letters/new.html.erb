@@ -1,13 +1,13 @@
 <% content_for :head do %> 
-<%= render :partial => "index_menu" %>
+  <%= render :partial => "index_menu" %>
 <% end %>
 
 <%= error_messages_for :letter %>
 
-<% form_for @letter, :html => {:multipart => true} do |f| %>
+<%= form_for @letter, :html => {:multipart => true} do |f| %>
 
-<%= render_form(f, 'form') %>
+  <%= render_form('form', f) %>
 
-<p><%= f.submit 'Create' %></p>
+  <div><%= f.submit 'Create' %></div>
 
 <% end %>

@@ -1,34 +1,34 @@
-<p>
-Tip: 
-<%= f.select :in_out, {"Dolazni" => Transfer::TYPE[:incoming], "Odlazni" => Transfer::TYPE[:outgoing]}, {:include_blank => true} %>
-</p>
+<div>
+  Tip: 
+  <%= f.select :in_out, {"Dolazni" => Transfer::TYPE[:incoming], "Odlazni" => Transfer::TYPE[:outgoing]} %>
+</div>
 
-<p>
-Dopis:<br/>
-<%= file_field :letter, :file %>
-</p>
+<div>
+  Dopis:<br/>
+  <%= file_field :letter, :document %>
+</div>
 
-<p>
-Datum slanja/primanja:<br/>
-<%= f.date_select :date , :order => [:day, :month, :year], :start_year => 2000  %>
-</p>
+<div>
+  Datum slanja/primanja:<br/>
+  <%= f.date_select :date , :order => [:day, :month, :year], :start_year => 2000  %>
+</div>
 
-<p>
-Posiljatelj:<br/>
-<%= f.text_field :from %>
-</p>
+<div>
+  Posiljatelj:<br/>
+  <%= f.text_field :from %>
+</div>
 
-<p>
-Primatelj:<br/>
-<%= f.text_field :to %>
-</p>
+<div>
+  Primatelj:<br/>
+  <%= f.text_field :to %>
+</div>
 
-<p>
-Predmet:<br/>
-<%= f.text_field :subject %>
-</p>
+<div>
+  Predmet:<br/>
+  <%= f.text_field :subject %>
+</div>
 
-<p>
-Urudzbeni broj (sljedeci izlazni je <%= @next_dn %>)<br/>
-<%= f.text_field :delivery_number %> 
-</p>
+<div>
+  Urudzbeni broj (sljedeci izlazni je <%= @next_dn %>)<br/>
+  <%= f.text_field :delivery_number %> 
+</div>

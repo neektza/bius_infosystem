@@ -1,29 +1,27 @@
 class ProjectReportsController < ApplicationController
-  load_and_authorize_resource
 
   def show
     @project = Project.find(params[:project_id])
     if @project.report.nil?
       flash[:notice] = 'Project has no report.'
     end
+    authorize! :read, Project
   end
 
   def new
     @project = Project.find(params[:project_id])
+    authorize! :create, Report
+  end
   end
 
   def create
     @project = Project.find(params[:project_id])
-    @project.report = Report.new(:file => params[:report], :year => Time.now.year , :stamp => Time.now)
+    @project.report = Report.new(:document => params[:document], :year => Time.now.year)
     if @project.save
       flash.now[:notice] = "Report was successfully saved."
       redirect_to project_report_url(@project)
     end
-  end
-
-  def download
-    @report = Project.find(params[:project_id]).report
-    send_data(@report.data, :filename => @report.filename, :type => @report.content_type)
+    authorize! :create, Report
   end
 
   def destroy
@@ -32,6 +30,8 @@ class ProjectReportsController < ApplicationController
       flash[:notice] = 'Report was successfully deleted.'
     end
     redirect_to project_report_url
+    authorize! :destroy, Report
+  end
   end
 
 end

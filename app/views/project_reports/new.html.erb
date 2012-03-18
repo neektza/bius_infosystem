@@ -1,19 +1,18 @@
 <% content_for :head do %> 
-<%= render :partial => "projects/show_menu" %>
+  <%= render :partial => "projects/show_menu" %>
 <% end %>
 
-<p><%= error_messages_for :reports %></p>
+<div>
+  <%= error_messages_for :reports %>
+</div>
 
+<%= form_tag project_report_url(@project), { :multipart => true } do %>
+  <div>
+    Izvjestaj za spremanje:</br>
+    <%= file_field_tag :document %>
+  </div>
 
-<% form_tag project_report_url(@project), { :multipart => true } do %>
-
-<p>
-Izvjestaj za spremanje:</br>
-<%= file_field_tag :report %>
-</p>
-
-<p>
-<%= submit_tag 'Spremi izvjesce' %>
-</p>
-
+  <div>
+    <%= submit_tag 'Spremi izvjesce' %>
+  </div>
 <% end %>
