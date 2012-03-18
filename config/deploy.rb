@@ -22,10 +22,17 @@ role :web, "hosting.kset.org"
 role :app, "hosting.kset.org"
 #role :db,  "db.kset.org", :primary => true # This is where Rails migrations will run
 
+after 'deploy:update_code', 'deploy:symlink_db'
+
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
+
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+
+  task :symlink_db, :roles => :app do
+    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
   end
 end

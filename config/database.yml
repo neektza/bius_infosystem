@@ -12,6 +12,6 @@ production:
   adapter: postgresql
   encoding: utf8
   host: db.kset.org 
-  database: bius-infosystem
+  database: bius-infosystem-new
   username: bius-infosystem
   password: w00t
