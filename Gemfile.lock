@@ -131,6 +131,6 @@ DEPENDENCIES
   jquery-rails (~> 2.0)
   mysql2
   paperclip (~> 2.7)
-  pg
+  pg (~> 0.13)
   rails (~> 3.2)
   thin
