@@ -1,24 +1,22 @@
 <% content_for :head do %> 
-<%= render :partial => "index_menu" %>
+  <%= render :partial => "index_menu" %>
 <% end %>
 
 <% form_tag search_sections_path do %>
-<p>
-Naziv...<br/>
-<%= text_field_tag 'keyword' %>
-<%= submit_tag "Search" %>
-</p>
+  <div>
+    Naziv...<br/>
+    <%= text_field_tag 'keyword' %>
+    <%= submit_tag "Search" %>
+  </div>
 <% end %>
 
 
 <% unless @sections.empty? %>
-<p>
-<ul>
-
-<% for section in @sections %>
-<li><%= link_to section.title, section_url(section) %></li>
-<% end %>
-
-</ul>
-</p>
+  <div>
+    <ul>
+      <% for section in @sections %>
+        <li><%= link_to section.title, section_url(section) %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

@@ -1,32 +1,32 @@
 <% content_for :head do %> 
-<%= render :partial => "index_menu" %>
+  <%= render :partial => "index_menu" %>
 <% end %>
 
-<% form_tag search_tags_path do %>
-<p>
-Title...<br/>
-<%= text_field_tag 'keyword' %>
-<%= submit_tag "Search" %>
-</p>
+<%= form_tag search_tags_path do %>
+  <div>
+    Title...<br/>
+    <%= text_field_tag 'keyword' %>
+    <%= submit_tag "Search" %>
+  </div>
 <% end %>
 
 
 <% unless @tags.empty? %>
-<p>
-<table border='1'>
-	
-<tr>
-<th>Title</th>
-<th>Description</th>
-</tr>
+  <div>
+    <table border='1'>
 
-<% for tag in @tags %>
-<tr>
-<td><%= link_to tag.title, tag_url(tag) %></td>
-<td><%=h tag.description %></td>
-</tr>
-<% end %>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
 
-</p>
-</table>
+      <% for tag in @tags %>
+        <tr>
+          <td><%= link_to tag.title, tag_url(tag) %></td>
+          <td><%=h tag.description %></td>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
 <% end %>

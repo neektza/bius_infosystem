@@ -35,7 +35,6 @@ class Letter < ActiveRecord::Base
       'outgoing'
     end
   end
-
   
   def image?
     !(document_content_type =~ /^image.*/).nil?

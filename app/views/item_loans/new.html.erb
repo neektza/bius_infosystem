@@ -6,7 +6,7 @@
 
 <%= form_for [@item, @loan] do |f| %>
 
-<%= render_form(f, 'loans/form') %>
+<%= render_form('loans/form', f) %>
 
 <p> <%= f.submit 'Create' %> </p>
 

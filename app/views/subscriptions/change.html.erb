@@ -1,20 +1,22 @@
 <% content_for :head do %> 
-<%= render :partial => "index_menu" %>
+  <%= render :partial => "index_menu" %>
 <% end %>
 
 <% unless @subscriptions.empty? %>
 
-<p>
-<% form_tag member_subscriptions_url(session[:user_id]) do %>
-  
-  <% for tag in @subscriptions %>
-    <%= check_box_tag 'tag_ids[]', tag.id , @member.tag_ids.include?(tag.id) %> | <%= tag.title %>  <br/>
-  <% end %>
+  <div>
+    <%= form_tag member_subscriptions_url(session[:user_id]) do %>
 
-  <p> <%= submit_tag 'Save' %></p>
-<% end %>
-</p>
+      <% for tag in @subscriptions %>
+        <%= check_box_tag 'tag_ids[]', tag.id , @member.tag_ids.include?(tag.id) %> | <%= tag.title %>  <br/>
+      <% end %>
+
+      <%= submit_tag 'Save' %>
+    <% end %>
+  </div>
 
 <% else %>
-<p><%= flash[:tags] %></p>
+  <div>
+    <%= flash[:tags] %>
+  </div>
 <% end %>

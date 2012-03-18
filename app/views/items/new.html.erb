@@ -4,9 +4,9 @@
 
 <%= error_messages_for :item %>
 
-<% form_for Item.new do |f| %>
+<%= form_for Item.new do |f| %>
 
-<%= render_form(f, 'form') %>
+<%= render_form('form', f) %>
 
 <p> <%= submit_tag 'Create' %> </p>
     

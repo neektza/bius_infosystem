@@ -1,24 +1,22 @@
 <% content_for :head do %> 
-<%= render :partial => "index_menu" %>
+  <%= render :partial => "index_menu" %>
 <% end %>
 
-<% form_tag search_letters_path do %>
-<p>
-Subject..<br/>
-<%= text_field_tag 'keyword' %>
-<%= submit_tag "Search" %>
-</p>
+<%= form_tag search_letters_path do %>
+  <div>
+    Subject..<br/>
+    <%= text_field_tag 'keyword' %>
+    <%= submit_tag "Search" %>
+  </div>
 <% end %>
 
 
 <% unless @letters.empty? %>
-<p>
-<ul>
-
-<% for l in @letters %>
-<li><%= link_to l.subject, letter_url(l) %></li>
-<% end %>
-
-</ul>
-</p>
+  <div>
+    <ul>
+      <% for l in @letters %>
+        <li><%= link_to l.subject, letter_url(l) %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

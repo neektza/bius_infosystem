@@ -4,9 +4,9 @@
 
 <%= error_messages_for :book %>
 
-<% form_for @book do |f| %>
+<%= form_for @book do |f| %>
 
-<%= render_form(f, 'form') %>
+<%= render_form('form', f) %>
 
 <p> <%= f.submit 'Create' %> </p>
     

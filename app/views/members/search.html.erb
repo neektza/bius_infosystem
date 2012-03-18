@@ -1,38 +1,37 @@
 <% content_for :head do %> 
-<%= render :partial => "index_menu" %>
+  <%= render :partial => "index_menu" %>
 <% end %>
 
 
-<% form_tag search_members_path do %>
-<p>
-Ime/Prezime/Username...<br/>
-<%= text_field_tag 'keyword' %>
-<%= submit_tag "Search" %>
-</p>
+<%= form_tag search_members_path do %>
+  <div>
+    Ime/Prezime/Username...<br/>
+    <%= text_field_tag 'keyword' %>
+    <%= submit_tag "Search" %>
+  </div>
 <% end %>
 
 
 <% unless @members.empty? %>
-<p>
-<table border='1'>
-	
-<tr>
-<th>Username</th>
-<th>Ime</th>
-<th>Prezime</th>
-<th>E-mail</th>
-</tr>
+  <div>
+    <table border='1'>
 
-<% for member in @members %>
-<tr>
-<td><%= link_to member.username, member_url(member) %></td>
-<td><%=h member.first_name %></td>
-<td><%=h member.last_name %></td>
-<td><%=h member.email %></td>
+      <tr>
+        <th>Username</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>E-mail</th>
+      </tr>
 
-</tr>
-<% end %>
+      <% for member in @members %>
+        <tr>
+          <td><%= link_to member.username, member_url(member) %></td>
+          <td><%=h member.first_name %></td>
+          <td><%=h member.last_name %></td>
+          <td><%=h member.email %></td>
+        </tr>
+      <% end %>
 
-</p>
-</table>
+    </table>
+  </div>
 <% end %>
