@@ -7,6 +7,7 @@ gem 'devise', "~>2.0"
 gem 'cancan', "~>1.6"
 gem "paperclip", "~>2.7"
 gem 'dynamic_form', "~>1.1"
+gem 'sqlite3', '~>1.3'
 
 group :development, :test do
   gem 'thin'
